@@ -5,11 +5,12 @@ package il.ac.hit;
  */
 public interface IToDoListItemDAO
 {
-    void addItem();
+    public void addTask(Task task);
 
-    void updateItem();
+    public void updateTask(Task task);
 
-    void deleteItem();
+    public void deleteTask(Task task);
+
 
 
 

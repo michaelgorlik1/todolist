@@ -5,7 +5,7 @@ import il.ac.hit.model.Task;
 /**
  * Created by artur on 07/03/2016.
  */
-public interface IToDoListItemDAO
+public interface IToDoListTaskDAO
 {
     public void addTask(Task task) throws ToDoListException;
 

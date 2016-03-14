@@ -3,16 +3,16 @@ package il.ac.hit.model;
 /**
  * Created by artur on 07/03/2016.
  */
-public class ToDoListItemDAO implements IToDoListItemDAO
+public class ToDoListTaskDAO implements IToDoListTaskDAO
 {
-    private static ToDoListItemDAO ourInstance = new ToDoListItemDAO();
+    private static ToDoListTaskDAO ourInstance = new ToDoListTaskDAO();
 
-    public static ToDoListItemDAO getInstance()
+    public static ToDoListTaskDAO getInstance()
     {
         return ourInstance;
     }
 
-    private ToDoListItemDAO()
+    private ToDoListTaskDAO()
     {
     }
 

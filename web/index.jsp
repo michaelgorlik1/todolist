@@ -11,6 +11,18 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <%
+    out.print("<table>");
+    for(int row=1; row<=10; row++)
+    {
+      out.print("<tr>");
+      for(int col=1; col<=10; col++)
+      {
+        out.print("<td>"+(col*row)+"</td>");
+      }
+      out.print("</tr>");
+    }
+    out.print("</table>");
+  %>
   </body>
 </html>

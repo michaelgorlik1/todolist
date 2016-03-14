@@ -5,5 +5,10 @@ package il.ac.hit.model;
  */
 public interface IToDoListUserDAO extends IToDoListDAO
 {
+    public void addUser(User user) throws ToDoListException;
+
+    public void updateUser(User user)throws ToDoListException;
+
+    public void deleteTask(User user)throws ToDoListException;
 
 }

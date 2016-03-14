@@ -1,4 +1,4 @@
-package il.ac.hit;
+package il.ac.hit.model;
 
 /**
  * Created by artur on 11/03/2016.

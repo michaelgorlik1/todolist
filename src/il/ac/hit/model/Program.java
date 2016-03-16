@@ -8,7 +8,7 @@ import java.util.Date;
 public class Program {
      public static void main(String[] args)
      {
-         Task task = new Task("title","description",new Date(),1);
+         Task task = new Task("fsdafasdfasdf", "asdfadfadfasdfasdfdescription", new Date(), 1);
          ToDoListDAO toDoListDAO = ToDoListDAO.getInstance();
          try {
              toDoListDAO.addTask(task);

@@ -36,7 +36,7 @@ public class ToDoListDAO implements IToDoListDAO
     @Override
     public void addTask(Task task) throws ToDoListException
     {
-        factory = new AnnotationConfiguration().configure("hibernate3.jar").buildSessionFactory();
+        factory = new AnnotationConfiguration().configure().buildSessionFactory();
         Session session = factory.openSession();
         try
         {

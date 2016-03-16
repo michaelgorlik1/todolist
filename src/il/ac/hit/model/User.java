@@ -16,27 +16,12 @@ public class User
     {
 
     }
-    public User(String name, String password, int id)
+
+    public User(String name, String password)
     {
         super();
         setName(name);
         setPassword(password);
-        setId(id);
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public void setPassword(String password)
-    {
-        this.password = password;
-    }
-
-    public void setId(int id)
-    {
-        this.id = id;
     }
 
     @Override
@@ -47,5 +32,35 @@ public class User
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
     }
 }

@@ -17,7 +17,7 @@
 </class>
 
 <class name="il.ac.hit.model.Task" table="TASKS">
-<id name="id" type="int" column="ID">
+  <id name="taskId" type="int" column="ID">
   <generator class="increment"/>
 </id>
 

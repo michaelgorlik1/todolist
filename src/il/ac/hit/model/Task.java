@@ -16,8 +16,6 @@ Task
     public Task()
     {}
 
-
-
     public Task(String title, String description, Date date, int taskId)
     {
         super();
@@ -27,23 +25,14 @@ Task
         setTaskId(taskId);
     }
 
-    public void setTitle(String title)
+    public int getTaskId()
     {
-        this.title = title;
+        return taskId;
     }
 
-    public void setDescription(String description)
+    public void setTaskId(int taskId)
     {
-        this.description = description;
-    }
-
-    public void setDate(Date date)
-    {
-        if(date == null)
-        {
-            date = new Date();
-        }
-        this.date=date;
+        this.taskId = taskId;
     }
 
     public String getTitle()
@@ -51,9 +40,19 @@ Task
         return title;
     }
 
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
+
     public String getDescription()
     {
         return description;
+    }
+
+    public void setDescription(String description)
+    {
+        this.description = description;
     }
 
     public Date getDate()
@@ -61,14 +60,14 @@ Task
         return date;
     }
 
-    public int getTaskId() {
-        return taskId;
+    public void setDate(Date date)
+    {
+        if (date == null)
+        {
+            date = new Date();
+        }
+        this.date = date;
     }
-
-    public void setTaskId(int taskId) {
-        this.taskId = taskId;
-    }
-
 
     @Override
     public String toString()

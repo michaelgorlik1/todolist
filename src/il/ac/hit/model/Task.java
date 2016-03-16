@@ -5,20 +5,26 @@ import java.util.Date;
 /**
  * Created by artur on 11/03/2016.
  */
-public class Task
+public class
+Task
 {
     private String title;
     private String description;
     private Date date;
+    private int taskId;
 
     public Task()
     {}
 
-    public Task(String title, String description, Date date)
+
+
+    public Task(String title, String description, Date date, int taskId)
     {
+        super();
         setTitle(title);
         setDescription(description);
         setDate(date);
+        setTaskId(taskId);
     }
 
     public void setTitle(String title)
@@ -53,6 +59,14 @@ public class Task
     public Date getDate()
     {
         return date;
+    }
+
+    public int getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 
 

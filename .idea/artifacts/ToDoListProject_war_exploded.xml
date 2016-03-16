@@ -7,7 +7,12 @@
         <element id="directory" name="classes">
           <element id="module-output" name="ToDoListProject" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Hibernate" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.38-bin - Copy.jar" />
+        </element>
       </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/src" />
     </root>
   </artifact>
 </component>

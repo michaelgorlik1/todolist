@@ -3,6 +3,7 @@ package il.ac.hit.model;
 /**
  * Created by artur on 12/03/2016.
  */
+
 public class User
 {
     private int id;

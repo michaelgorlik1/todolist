@@ -36,7 +36,6 @@ public class ToDoListDAO implements IToDoListDAO
     @Override
     public void addTask(Task task) throws ToDoListException
     {
-        factory = new AnnotationConfiguration().configure().buildSessionFactory();
         Session session = factory.openSession();
         try
         {
@@ -96,24 +95,22 @@ public class ToDoListDAO implements IToDoListDAO
     public void deleteTask(Task task) throws ToDoListException
     {
         Session session = factory.openSession();
-        try
-        {
+        try {
             session.beginTransaction();
-            session.delete(task);
+            String hql = "DELETE FROM Task WHERE id = :Id";
+            Query query = session.createQuery(hql);
+            query.setParameter("Id", task.getId());
+            int result = query.executeUpdate();
+            System.out.println("Rows affected: " + result);
             session.getTransaction().commit();
-        }
-        catch (HibernateException e)
-        {
+        } catch (HibernateException e) {
             Transaction tx = session.getTransaction();
-            if (tx.isActive())
-            {
+            if (tx.isActive()) {
                 tx.rollback();
             }
             e.printStackTrace();
             throw new ToDoListException("Couldn't delete task");
-        }
-        finally
-        {
+        } finally {
             if (session != null)
                 session.close();
         }
@@ -125,11 +122,6 @@ public class ToDoListDAO implements IToDoListDAO
         Session session = factory.openSession();
         try
         {
-            if (user.getPassword().length() < 5)
-                throw new ToDoListException("Password is too short");
-           /* if (!user.getEmail().contains("@"))
-                throw new ToDoListException("Invalid email");
-                */
             String hql = "FROM User WHERE name= :name";
             Query query = session.createQuery(hql);
             query.setString("name", user.getName());
@@ -161,12 +153,53 @@ public class ToDoListDAO implements IToDoListDAO
     @Override
     public void updateUser(User user) throws ToDoListException
     {
-
+        Session session = factory.openSession();
+        try {
+            String hql = "FROM User WHERE name= :name";
+            Query query = session.createQuery(hql);
+            query.setString("name", user.getName());
+            if (!query.list().isEmpty())
+                throw new ToDoListException("Username already exists in the database");
+            session.beginTransaction();
+            session.update(user);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            Transaction tx = session.getTransaction();
+            if (tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+            throw new ToDoListException("Couldn't update task on the database");
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 
     @Override
     public void deleteUser(User user) throws ToDoListException
     {
-
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            String hql = "DELETE FROM User WHERE name = :name";
+            Query query = session.createQuery(hql);
+            query.setParameter("name", user.getName());
+            int result = query.executeUpdate();
+            System.out.println("Rows affected: " + result);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            Transaction tx = session.getTransaction();
+            if (tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+            throw new ToDoListException("Couldn't delete user from the database");
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 }

@@ -11,28 +11,28 @@ Task
     private String title;
     private String description;
     private Date date;
-    private int taskId;
+    private int id;
 
     public Task()
     {}
 
-    public Task(String title, String description, Date date, int taskId)
+    public Task(String title, String description, Date date, int id)
     {
         super();
         setTitle(title);
         setDescription(description);
         setDate(date);
-        setTaskId(taskId);
+        setId(id);
     }
 
-    public int getTaskId()
+    public int getId()
     {
-        return taskId;
+        return id;
     }
 
-    public void setTaskId(int taskId)
+    public void setId(int taskId)
     {
-        this.taskId = taskId;
+        this.id = id;
     }
 
     public String getTitle()
@@ -70,12 +70,12 @@ Task
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Task{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", date=" + date +
+                ", Id=" + id +
                 '}';
     }
 }

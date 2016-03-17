@@ -20,7 +20,6 @@
   <id name="taskID" type="int" column="ID">
   <generator class="increment"/>
 </id>
-
   <property name="title">
     <column name="TITLE"/>
   </property>

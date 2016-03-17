@@ -1,7 +1,12 @@
 package il.ac.hit.model;
 
-import org.hibernate.*;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
+
+import java.util.List;
 
 /**
  * Created by artur on 07/03/2016.
@@ -45,10 +50,9 @@ public class ToDoListDAO implements IToDoListDAO
         }
         catch (HibernateException e)
         {
-            Transaction tx = session.getTransaction();
-            if (tx.isActive())
+            if (session.getTransaction() != null)
             {
-                tx.rollback();
+                session.getTransaction().rollback();
             }
             e.printStackTrace();
             throw new ToDoListException("Couldn't add task to database");
@@ -74,10 +78,9 @@ public class ToDoListDAO implements IToDoListDAO
         }
         catch (HibernateException e)
         {
-            Transaction tx = session.getTransaction();
-            if (tx.isActive())
+            if (session.getTransaction() != null)
             {
-                tx.rollback();
+                session.getTransaction().rollback();
             }
             e.printStackTrace();
             throw new ToDoListException("Couldn't update task on the database");
@@ -95,21 +98,26 @@ public class ToDoListDAO implements IToDoListDAO
     public void deleteTask(Task task) throws ToDoListException
     {
         Session session = factory.openSession();
-        try {
+        try
+        {
             session.beginTransaction();
             String hql = "DELETE FROM Task WHERE id = :Id";
             Query query = session.createQuery(hql);
             query.setParameter("Id", task.getTaskID());
             int result = query.executeUpdate();
             session.getTransaction().commit();
-        } catch (HibernateException e) {
-            Transaction tx = session.getTransaction();
-            if (tx.isActive()) {
-                tx.rollback();
+        }
+        catch (HibernateException e)
+        {
+            if (session.getTransaction() != null)
+            {
+                session.getTransaction().rollback();
             }
             e.printStackTrace();
             throw new ToDoListException("Couldn't delete task");
-        } finally {
+        }
+        finally
+        {
             if (session != null)
                 session.close();
         }
@@ -125,17 +133,18 @@ public class ToDoListDAO implements IToDoListDAO
             Query query = session.createQuery(hql);
             query.setString("name", user.getName());
             if (!query.list().isEmpty())
+            {
                 throw new ToDoListException("User already exists");
+            }
             session.beginTransaction();
             session.save(user);
             session.getTransaction().commit();
         }
         catch (HibernateException e)
         {
-            Transaction tx = session.getTransaction();
-            if (tx.isActive())
+            if (session.getTransaction() != null)
             {
-                tx.rollback();
+                session.getTransaction().rollback();
             }
             e.printStackTrace();
             throw new ToDoListException("Couldn't add user to database");
@@ -153,7 +162,8 @@ public class ToDoListDAO implements IToDoListDAO
     public void updateUser(User user) throws ToDoListException
     {
         Session session = factory.openSession();
-        try {
+        try
+        {
             String hql = "FROM User WHERE name= :name";
             Query query = session.createQuery(hql);
             query.setString("name", user.getName());
@@ -162,15 +172,20 @@ public class ToDoListDAO implements IToDoListDAO
             session.beginTransaction();
             session.update(user);
             session.getTransaction().commit();
-        } catch (HibernateException e) {
-            Transaction tx = session.getTransaction();
-            if (tx.isActive()) {
-                tx.rollback();
+        }
+        catch (HibernateException e)
+        {
+            if (session.getTransaction() != null)
+            {
+                session.getTransaction().rollback();
             }
             e.printStackTrace();
             throw new ToDoListException("Couldn't update task on the database");
-        } finally {
-            if (session != null) {
+        }
+        finally
+        {
+            if (session != null)
+            {
                 session.close();
             }
         }
@@ -180,24 +195,50 @@ public class ToDoListDAO implements IToDoListDAO
     public void deleteUser(User user) throws ToDoListException
     {
         Session session = factory.openSession();
-        try {
+        try
+        {
             session.beginTransaction();
             String hql = "DELETE FROM User WHERE name = :name";
             Query query = session.createQuery(hql);
             query.setParameter("name", user.getName());
             int result = query.executeUpdate();
             session.getTransaction().commit();
-        } catch (HibernateException e) {
-            Transaction tx = session.getTransaction();
-            if (tx.isActive()) {
-                tx.rollback();
+        }
+        catch (HibernateException e)
+        {
+            if (session.getTransaction() != null)
+            {
+                session.getTransaction().rollback();
             }
             e.printStackTrace();
             throw new ToDoListException("Couldn't delete user from the database");
-        } finally {
-            if (session != null) {
+        }
+        finally
+        {
+            if (session != null)
+            {
                 session.close();
             }
         }
+    }
+
+    public boolean checkIfUserExists(User user)
+    {
+        return checkIfUserExists(user.getId());
+    }
+
+    private boolean checkIfUserExists(int userID)
+    {
+        Session session = factory.openSession();
+        session.beginTransaction();
+        List<User> users = session.createQuery("from User").list();
+        for (User user : users)
+        {
+            if (user.getId() == userID)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

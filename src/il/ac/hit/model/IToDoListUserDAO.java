@@ -7,7 +7,7 @@ public interface IToDoListUserDAO
 {
     public void addUser(User user) throws ToDoListException;
 
-    public void updateUser(User user)throws ToDoListException;
+    public void updateUser(User user) throws ToDoListException;
 
     public void deleteUser(User user) throws ToDoListException;
 

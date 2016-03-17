@@ -17,22 +17,30 @@ public class User
 
     }
 
-    public User(String name, String password, int id)
+    public User(String name, String password)
     {
         super();
         setName(name);
         setPassword(password);
-        setId(id);
     }
 
     @Override
     public String toString()
     {
         return "User{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result += prime * result + ((name == null) ? 0 : name.hashCode());
+        result += prime * result + ((password == null) ? 0 : password.hashCode());
+        return result;
     }
 
     public int getId()
@@ -63,5 +71,18 @@ public class User
     public void setPassword(String password)
     {
         this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!(obj instanceof User)) return false;
+
+        User user = (User) obj;
+
+        if (getName() != null ? !getName().equals(user.getName()) : user.getName() != null) return false;
+        return getPassword() != null ? getPassword().equals(user.getPassword()) : user.getPassword() == null;
+
     }
 }

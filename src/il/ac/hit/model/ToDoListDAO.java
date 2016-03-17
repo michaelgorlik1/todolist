@@ -99,9 +99,8 @@ public class ToDoListDAO implements IToDoListDAO
             session.beginTransaction();
             String hql = "DELETE FROM Task WHERE id = :Id";
             Query query = session.createQuery(hql);
-            query.setParameter("Id", task.getId());
+            query.setParameter("Id", task.getTaskID());
             int result = query.executeUpdate();
-            System.out.println("Rows affected: " + result);
             session.getTransaction().commit();
         } catch (HibernateException e) {
             Transaction tx = session.getTransaction();
@@ -187,7 +186,6 @@ public class ToDoListDAO implements IToDoListDAO
             Query query = session.createQuery(hql);
             query.setParameter("name", user.getName());
             int result = query.executeUpdate();
-            System.out.println("Rows affected: " + result);
             session.getTransaction().commit();
         } catch (HibernateException e) {
             Transaction tx = session.getTransaction();

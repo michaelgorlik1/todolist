@@ -11,28 +11,28 @@ Task
     private String title;
     private String description;
     private Date date;
-    private int id;
+    private int taskID;
 
     public Task()
     {}
 
-    public Task(String title, String description, Date date, int id)
+    public Task(String title, String description, Date date, int taskID)
     {
         super();
         setTitle(title);
         setDescription(description);
         setDate(date);
-        setId(id);
+        setTaskID(taskID);
     }
 
-    public int getId()
+    public int getTaskID()
     {
-        return id;
+        return taskID;
     }
 
-    public void setId(int taskId)
+    public void setTaskID(int taskID)
     {
-        this.id = id;
+        this.taskID = taskID;
     }
 
     public String getTitle()
@@ -75,7 +75,7 @@ Task
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", date=" + date +
-                ", Id=" + id +
+                ", Id=" + taskID +
                 '}';
     }
 }

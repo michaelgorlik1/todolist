@@ -17,11 +17,12 @@ public class User
 
     }
 
-    public User(String name, String password)
+    public User(String name, String password, int id)
     {
         super();
         setName(name);
         setPassword(password);
+        setId(id);
     }
 
     @Override

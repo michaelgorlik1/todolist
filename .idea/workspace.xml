@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dbde3781-2759-4a20-8205-b801dfc0eb12" name="Default" comment="JAR added">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/ToDoListProject_war_exploded/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ToDoListProject_war_exploded/WEB-INF/classes/il/ac/hit/model/Task.class" afterPath="$PROJECT_DIR$/out/artifacts/ToDoListProject_war_exploded/WEB-INF/classes/il/ac/hit/model/Task.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ToDoListProject_war_exploded/WEB-INF/classes/il/ac/hit/model/User.class" afterPath="$PROJECT_DIR$/out/artifacts/ToDoListProject_war_exploded/WEB-INF/classes/il/ac/hit/model/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ToDoListProject/il/ac/hit/model/Task.class" afterPath="$PROJECT_DIR$/out/production/ToDoListProject/il/ac/hit/model/Task.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ToDoListProject/il/ac/hit/model/User.class" afterPath="$PROJECT_DIR$/out/production/ToDoListProject/il/ac/hit/model/User.class" />
+    <list default="true" id="dbde3781-2759-4a20-8205-b801dfc0eb12" name="Default" comment="added all methods in todolistDAO">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToDoListProject/il/ac/hit/model/mapping.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/il/ac/hit/model/Program.java" afterPath="$PROJECT_DIR$/src/il/ac/hit/model/Program.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/il/ac/hit/model/Task.java" afterPath="$PROJECT_DIR$/src/il/ac/hit/model/Task.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/il/ac/hit/model/ToDoListDAO.java" afterPath="$PROJECT_DIR$/src/il/ac/hit/model/ToDoListDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/il/ac/hit/model/User.java" afterPath="$PROJECT_DIR$/src/il/ac/hit/model/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mapping.xml" afterPath="$PROJECT_DIR$/src/mapping.xml" />
     </list>
     <ignored path="ToDoListProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +34,8 @@
       <file leaf-file-name="Program.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/il/ac/hit/model/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4939759">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.73099416">
+              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -47,8 +44,8 @@
       <file leaf-file-name="ToDoListDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/il/ac/hit/model/ToDoListDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6666665">
-              <caret line="143" column="15" selection-start-line="143" selection-start-column="15" selection-end-line="143" selection-end-column="15" />
+            <state vertical-scroll-proportion="-53.88889">
+              <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/src/il/ac/hit/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -69,8 +66,21 @@
       <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/il/ac/hit/model/Task.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state vertical-scroll-proportion="-25.555555">
+              <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+              <folding>
+                <element signature="e#491#492#0" expanded="true" />
+                <element signature="e#520#521#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mapping.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mapping.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.875">
+              <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -107,13 +117,13 @@
         <option value="$PROJECT_DIR$/src/il/ac/hit/model/IToDoListDAO.java" />
         <option value="$PROJECT_DIR$/src/il/ac/hit/model/IToDoListUserDAO.java" />
         <option value="$PROJECT_DIR$/src/il/ac/hit/model/ToDoListTaskDAO.java" />
-        <option value="$PROJECT_DIR$/src/il/ac/hit/model/User.java" />
         <option value="$PROJECT_DIR$/src/il/ac/hit/model/Servlet.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/mapping.xml" />
+        <option value="$PROJECT_DIR$/src/il/ac/hit/model/Task.java" />
+        <option value="$PROJECT_DIR$/src/il/ac/hit/model/User.java" />
         <option value="$PROJECT_DIR$/src/il/ac/hit/model/ToDoListDAO.java" />
         <option value="$PROJECT_DIR$/src/il/ac/hit/model/Program.java" />
-        <option value="$PROJECT_DIR$/src/il/ac/hit/model/Task.java" />
       </list>
     </option>
   </component>
@@ -137,9 +147,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="724" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -267,6 +276,7 @@
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -818,7 +828,7 @@
       <workItem from="1457961973857" duration="7315000" />
       <workItem from="1458138297179" duration="2359000" />
       <workItem from="1458144003295" duration="1731000" />
-      <workItem from="1458207410469" duration="3108000" />
+      <workItem from="1458207410469" duration="5432000" />
     </task>
     <task id="LOCAL-00001" summary="add methods to user interface">
       <created>1457962181227</created>
@@ -832,14 +842,20 @@
       <option name="project" value="LOCAL" />
       <updated>1458141740284</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added all methods in todolistDAO">
+      <created>1458212850072</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1458212850072</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18050000" />
+    <option name="totallyTimeSpent" value="20374000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="724" extended-state="6" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -847,11 +863,11 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.49464285" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32366413" sideWeight="0.3046875" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2815405" sideWeight="0.3046875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.496875" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32366413" sideWeight="0.6953125" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2815405" sideWeight="0.6953125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -877,7 +893,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add methods to user interface" />
     <MESSAGE value="JAR added" />
-    <option name="LAST_COMMIT_MESSAGE" value="JAR added" />
+    <MESSAGE value="added all methods in todolistDAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="added all methods in todolistDAO" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1247,14 +1264,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapping.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ToDoListProject.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.4385542">
@@ -1263,26 +1272,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/il/ac/hit/model/User.java">
+    <entry file="file://$PROJECT_DIR$/src/mapping.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.875">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/il/ac/hit/model/Task.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.555555">
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+          <folding>
+            <element signature="e#491#492#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/il/ac/hit/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/il/ac/hit/model/ToDoListDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6666665">
-          <caret line="143" column="15" selection-start-line="143" selection-start-column="15" selection-end-line="143" selection-end-column="15" />
+        <state vertical-scroll-proportion="-53.88889">
+          <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1291,8 +1311,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/il/ac/hit/model/Program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4939759">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.73099416">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding />
         </state>
       </provider>

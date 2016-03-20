@@ -23,6 +23,8 @@
 
     <script>
         $(function () {
+            $(".datepicker").datepicker({dateFormat: "dd/mm/yy"});
+            $(".datepicker").datepicker({minDate: 0});
             $(".datepicker").datepicker();
         });
     </script>

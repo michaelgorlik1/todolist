@@ -222,12 +222,14 @@ public class ToDoListDAO implements IToDoListDAO
         }
     }
 
-    public boolean checkIfUserExists(User user)
+    @Override
+    public boolean checkIfUserExists(User user) throws ToDoListException
     {
         return checkIfUserExists(user.getId());
     }
 
-    private boolean checkIfUserExists(int userID)
+    @Override
+    public boolean checkIfUserExists(int userID) throws ToDoListException
     {
         Session session = factory.openSession();
         session.beginTransaction();

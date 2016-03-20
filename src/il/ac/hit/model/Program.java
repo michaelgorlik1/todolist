@@ -1,12 +1,16 @@
 package il.ac.hit.model;
 
+import java.util.logging.Logger;
+
 /**
  * Created by michaelgorlik on 3/16/16.
  */
 public class Program
 {
+    static Logger logger = Logger.getLogger("Program");
     public static void main(String[] args)
     {
+
         /* Task task = new Task("fsdafasdfasdf", "asdfadfadfasdfasdfdescription", new Date(), 1);
          Task secondTask = new Task("test22", "seconddescription234", new Date(), 2);
          Task task3 = new Task("test3", "description3", new Date(), 3);

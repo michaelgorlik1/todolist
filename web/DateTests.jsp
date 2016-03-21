@@ -23,17 +23,14 @@
 
     <script>
         $(function () {
-            $(".datepicker").datepicker({dateFormat: "dd/mm/yy"});
             $(".datepicker").datepicker({minDate: 0});
+            $(".datepicker").datepicker({dateFormat: "dd/mm/yy"});
             $(".datepicker").datepicker();
         });
     </script>
 
 </head>
 <body>
-
 <p>Task Date: <input type="text" class="datepicker"/></p>
-
-
 </body>
 </html>

@@ -8,8 +8,7 @@
             com.mysql.jdbc.Driver
         </property>
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost:
-            /todolist
+            jdbc:mysql://localhost:8889/todolist
         </property>
         <property name="hibernate.connection.username">artur</property>
         <property name="hibernate.connection.password">artur</property>

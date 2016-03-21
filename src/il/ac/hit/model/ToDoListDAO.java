@@ -1,9 +1,6 @@
 package il.ac.hit.model;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 import org.hibernate.cfg.AnnotationConfiguration;
 
 import java.util.List;
@@ -142,9 +139,10 @@ public class ToDoListDAO implements IToDoListDAO
         }
         catch (HibernateException e)
         {
-            if (session.getTransaction() != null)
+            Transaction tx = session.getTransaction();
+            if (tx.isActive())
             {
-                session.getTransaction().rollback();
+                tx.rollback();
             }
             e.printStackTrace();
             throw new ToDoListException("Couldn't add user to database");

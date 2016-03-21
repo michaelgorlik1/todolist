@@ -11,4 +11,8 @@ public interface IToDoListUserDAO
 
     public void deleteUser(User user) throws ToDoListException;
 
+    public boolean checkIfUserExists(User user) throws ToDoListException;
+
+    public boolean checkIfUserExists(int userID) throws ToDoListException;
+
 }

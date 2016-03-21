@@ -1,6 +1,8 @@
 package il.ac.hit.controller;
 
+import il.ac.hit.model.IToDoListDAO;
 import il.ac.hit.model.ToDoListDAO;
+import il.ac.hit.model.ToDoListException;
 import il.ac.hit.model.User;
 
 import javax.servlet.RequestDispatcher;
@@ -15,7 +17,7 @@ import java.io.IOException;
  */
 public class Controller extends HttpServlet
 {
-    ToDoListDAO toDoListDAO = ToDoListDAO.getInstance();
+    IToDoListDAO toDoListDAO = ToDoListDAO.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -31,17 +33,17 @@ public class Controller extends HttpServlet
                 String userName = request.getParameter("userName");
                 String password = request.getParameter("password");
                 newUser = new User(userName, password);
-                if (toDoListDAO.checkIfUserExists(newUser))
+                try
                 {
+                    if (toDoListDAO.checkIfUserExists(newUser))
+                    {
 
+                    }
                 }
-                // }
-                //  catch (ToDoListException e)
-                // {
-                //     request.setAttribute("userMessage",e.getMessage());
-                //     dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-                //     dispatcher.forward(request,response);
-                //  }
+                catch (ToDoListException e)
+                {
+                    e.printStackTrace();
+                }
             }
         }
 

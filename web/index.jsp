@@ -22,7 +22,7 @@
 <section class="container">
     <section class="login-form">
         <form method="post" action="/todolistproject/controller/login" role="login">
-            <img src="images/logo.png" class="img-responsive" alt=""/>
+            <img src="images/logo2.png" class="img-responsive" alt=""/>
             <input type="text" name="userName" placeholder="User Name" required class="form-control input-lg"/>
             <input type="password" name="password" placeholder="Password" required class="form-control input-lg"/>
             <button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Sign in</button>

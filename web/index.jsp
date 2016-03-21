@@ -30,15 +30,11 @@
                 <a href="#">Create account</a>
             </div>
         </form>
-        <div class="form-links">
-            <a href="#">www.lifeBook.com</a>
-        </div>
     </section>
 </section>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
-
 
 </body>
 </html>

@@ -245,7 +245,7 @@ public class ToDoListDAO implements IToDoListDAO
         catch (HibernateException e)
         {
             e.printStackTrace();
-            throw new ToDoListException("Couldn't get users from the database");
+            throw new ToDoListException("Couldn't connect to the database, please try again");
         }
         finally
         {
@@ -269,6 +269,29 @@ public class ToDoListDAO implements IToDoListDAO
             }
         }
         throw new ToDoListException("user name or password is incorrect");
+    }
+
+    @Override
+    public User getUser(int userID) throws ToDoListException
+    {
+        try
+        {
+            Session session = factory.openSession();
+            session.beginTransaction();
+            String query = "FROM Task WHERE ID = :userID";
+            List<User> users = session.createQuery(query).list();
+            session.close();
+
+            if (users.size() == 1)
+            {
+                return users.get(0);
+            }
+            return null;
+        }
+        catch (HibernateException e)
+        {
+            throw new ToDoListException(e.getMessage());
+        }
     }
 
     @Override

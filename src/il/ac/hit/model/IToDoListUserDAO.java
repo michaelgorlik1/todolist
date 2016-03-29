@@ -19,4 +19,5 @@ public interface IToDoListUserDAO
 
     public void checkIfPasswordMatchToUser(User user) throws ToDoListException;
 
+    public User getUser(int userID) throws ToDoListException;
 }

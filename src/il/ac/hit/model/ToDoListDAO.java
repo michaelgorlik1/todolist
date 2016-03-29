@@ -221,24 +221,86 @@ public class ToDoListDAO implements IToDoListDAO
     }
 
     @Override
-    public boolean checkIfUserExists(User user) throws ToDoListException
+    public void checkIfUserExists(User user) throws ToDoListException
     {
-        return checkIfUserExists(user.getId());
+        checkIfUserExists(user.getId());
     }
 
     @Override
-    public boolean checkIfUserExists(int userID) throws ToDoListException
+    public void checkIfUserExists(int userID) throws ToDoListException
     {
         Session session = factory.openSession();
-        session.beginTransaction();
-        List<User> users = session.createQuery("from User").list();
-        for (User user : users)
+        try
         {
-            if (user.getId() == userID)
+            session.beginTransaction();
+            List<User> users = session.createQuery("from User").list();
+            for (User user : users)
             {
-                return true;
+                if (user.getId() == userID)
+                {
+                    return;
+                }
             }
         }
-        return false;
+        catch (HibernateException e)
+        {
+            e.printStackTrace();
+            throw new ToDoListException("Couldn't get users from the database");
+        }
+        finally
+        {
+            if (session != null)
+            {
+                session.close();
+            }
+        }
+        throw new ToDoListException("User not exist");
     }
+
+    @Override
+    public void checkIfPasswordMatchToUser(User user) throws ToDoListException
+    {
+        List<User> listUsers = getUsers();
+        for (User users : listUsers)
+        {
+            if (users.getName().equals(user.getName()) && users.getPassword().equals(user.getPassword()))
+            {
+                return;
+            }
+        }
+        throw new ToDoListException("user name or password is incorrect");
+    }
+
+    @Override
+    public void checkIfPasswordMatchToUser(int userID) throws ToDoListException
+    {
+
+    }
+
+    public List<User> getUsers()
+    {
+        Session session = null;
+        List<User> userList = null;
+
+        try
+        {
+            session = factory.openSession();
+            Query query = session.createQuery("from User");
+            userList = query.list();
+        }
+        catch (HibernateException e)
+        {
+            e.printStackTrace();
+            throw new ToDoListException("Couldn't get users from the database");
+        }
+        finally
+        {
+            if (session != null)
+            {
+                session.close();
+            }
+            return userList;
+        }
+    }
+
 }

@@ -30,7 +30,29 @@ public class Controller extends HttpServlet
         {
             case "/login":
             {
-                request.getRequestDispatcher("/register.jsp").forward(request, response);
+                String userName = request.getParameter("userName");
+                String password = request.getParameter("password");
+
+                newUser = new User(userName, password);
+                try
+                {
+                    toDoListDAO.checkIfUserExists(newUser);
+                    toDoListDAO.checkIfPasswordMatchToUser(newUser);
+
+                    request.getSession().setAttribute("userID", newUser.getId());
+                    request.getSession().setAttribute("userName", newUser.getName());
+
+                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
+                    dispatcher.forward(request, response);
+
+                }
+                catch (ToDoListException e)
+                {
+                    request.setAttribute("userMessage", e.getMessage());
+                    dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+                    dispatcher.forward(request, response);
+                }
+
                 break;
             }
             case "/register":
@@ -41,6 +63,8 @@ public class Controller extends HttpServlet
                 try
                 {
                     toDoListDAO.addUser(newUser);
+                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
+                    dispatcher.forward(request, response);
                 }
                 catch (ToDoListException e)
                 {

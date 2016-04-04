@@ -1,9 +1,6 @@
 package il.ac.hit.controller;
 
-import il.ac.hit.model.IToDoListDAO;
-import il.ac.hit.model.ToDoListDAO;
-import il.ac.hit.model.ToDoListException;
-import il.ac.hit.model.User;
+import il.ac.hit.model.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * Created by artur on 17/03/2016.
@@ -30,7 +28,28 @@ public class Controller extends HttpServlet
         {
             case "/login":
             {
-                request.getRequestDispatcher("/register.jsp").forward(request, response);
+                String userName = request.getParameter("userName");
+                String password = request.getParameter("password");
+
+                newUser = new User(userName, password);
+                try
+                {
+                    toDoListDAO.checkIfPasswordMatchToUser(newUser);
+                    newUser = toDoListDAO.getUser(newUser.getId());
+                    request.getSession().setAttribute("userID", newUser.getId());
+                    request.getSession().setAttribute("userName", newUser.getName());
+
+                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
+                    dispatcher.forward(request, response);
+
+                }
+                catch (ToDoListException e)
+                {
+                    request.setAttribute("userMessage", e.getMessage());
+                    dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+                    dispatcher.forward(request, response);
+                }
+
                 break;
             }
             case "/register":
@@ -38,9 +57,14 @@ public class Controller extends HttpServlet
                 String userName = request.getParameter("userName");
                 String password = request.getParameter("password");
                 newUser = new User(userName, password);
+
                 try
                 {
                     toDoListDAO.addUser(newUser);
+                    request.getSession().setAttribute("userID", newUser.getId());
+                    request.getSession().setAttribute("userName", newUser.getName());
+                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
+                    dispatcher.forward(request, response);
                 }
                 catch (ToDoListException e)
                 {
@@ -48,6 +72,27 @@ public class Controller extends HttpServlet
                     dispatcher = getServletContext().getRequestDispatcher("/register.jsp");
                     dispatcher.forward(request, response);
                 }
+                break;
+            }
+            case "/addTask":
+            {
+                String taskText = request.getParameter("taskText");
+                int userID = (int) (request.getSession().getAttribute("userID"));
+                Task task = new Task("title", taskText, new Date(), userID);
+                try
+                {
+                    toDoListDAO.addTask(task);
+                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
+                    dispatcher.forward(request, response);
+                }
+                catch (ToDoListException e)
+                {
+                    e.printStackTrace();
+                    request.getServletContext().setAttribute("userMessage", e.getMessage());
+                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
+                    dispatcher.forward(request, response);
+                }
+
                 break;
             }
             default:

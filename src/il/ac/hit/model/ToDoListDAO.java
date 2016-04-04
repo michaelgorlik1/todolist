@@ -260,12 +260,15 @@ public class ToDoListDAO implements IToDoListDAO
     @Override
     public void checkIfPasswordMatchToUser(User user) throws ToDoListException
     {
-        List<User> listUsers = getUsers();
-        for (User users : listUsers)
+        List<User> listUsers = getUsersList();
+        if (listUsers != null)
         {
-            if (users.getName().equals(user.getName()) && users.getPassword().equals(user.getPassword()))
+            for (User users : listUsers)
             {
-                return;
+                if (users.getName().equals(user.getName()) && users.getPassword().equals(user.getPassword()))
+                {
+                    return;
+                }
             }
         }
         throw new ToDoListException("user name or password is incorrect");
@@ -278,7 +281,7 @@ public class ToDoListDAO implements IToDoListDAO
         {
             Session session = factory.openSession();
             session.beginTransaction();
-            String query = "FROM Task WHERE ID = :userID";
+            String query = "FROM User WHERE ID = :userID";
             List<User> users = session.createQuery(query).list();
             session.close();
 
@@ -300,7 +303,7 @@ public class ToDoListDAO implements IToDoListDAO
 
     }
 
-    public List<User> getUsers()
+    public List<User> getUsersList()
     {
         Session session = null;
         List<User> userList = null;

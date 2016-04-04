@@ -5,23 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbde3781-2759-4a20-8205-b801dfc0eb12" name="Default" comment="Added partial Task manager,&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hibernate3.jar" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/bg1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/bgNew.jpg" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/bg_cellPhone.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ToDoListProject_war_exploded/WEB-INF/classes/il/ac/hit/model/Task.class" afterPath="$PROJECT_DIR$/out/artifacts/ToDoListProject_war_exploded/WEB-INF/classes/il/ac/hit/model/Task.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ToDoListProject_war_exploded/WEB-INF/classes/il/ac/hit/model/User.class" afterPath="$PROJECT_DIR$/out/artifacts/ToDoListProject_war_exploded/WEB-INF/classes/il/ac/hit/model/User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ToDoListProject/il/ac/hit/model/User.class" afterPath="$PROJECT_DIR$/out/production/ToDoListProject/il/ac/hit/model/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/ToDoListProject_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/ToDoListProject_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ToDoListProject.iml" afterPath="$PROJECT_DIR$/ToDoListProject.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/il/ac/hit/controller/Controller.java" afterPath="$PROJECT_DIR$/src/il/ac/hit/controller/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/il/ac/hit/model/Task.java" afterPath="$PROJECT_DIR$/src/il/ac/hit/model/Task.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/il/ac/hit/model/User.java" afterPath="$PROJECT_DIR$/src/il/ac/hit/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/DateTests.jsp" afterPath="$PROJECT_DIR$/web/DateTests.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/styles.css" afterPath="$PROJECT_DIR$/web/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/register.jsp" afterPath="$PROJECT_DIR$/web/register.jsp" />
     </list>
     <ignored path="ToDoListProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,8 +81,8 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+            <state relative-caret-position="170">
+              <caret line="13" column="94" selection-start-line="13" selection-start-column="94" selection-end-line="13" selection-end-column="94" />
               <folding />
             </state>
           </provider>
@@ -317,6 +306,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToDoListProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToDoListProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -355,18 +362,18 @@
     <property name="SearchEverywhereHistoryKey" value="data&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;logo.png&#9;FILE&#9;file://G:/SourceControl/todolistproject/web/images/logo2.png&#10;userID&#9;PSI&#9;JAVA://sun.security.x509.X500Name#userid_data" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Source Control\ToDoListProject\web\images" />
+      <recent name="G:\SourceControl\todolistproject\web\bootstrap\css" />
+      <recent name="G:\SourceControl\todolistproject\web\images" />
+      <recent name="G:\SourceControl\todolistproject\web\js" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\SourceControl\todolistproject\web\images" />
       <recent name="G:\SourceControl\todolistproject\web" />
       <recent name="G:\SourceControl\todolistproject\web\bootstrap" />
       <recent name="G:\SourceControl\todolistproject\web\bootstrap\fonts" />
       <recent name="G:\SourceControl\todolistproject\web\css" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\SourceControl\todolistproject\web\bootstrap\css" />
-      <recent name="G:\SourceControl\todolistproject\web\images" />
-      <recent name="E:\Source Control\ToDoListProject\web\images" />
-      <recent name="G:\SourceControl\todolistproject\web\js" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 7.0.68">
@@ -936,7 +943,7 @@
       <workItem from="1459468171401" duration="35000" />
       <workItem from="1459637941662" duration="18000" />
       <workItem from="1459757638272" duration="474000" />
-      <workItem from="1459760519717" duration="1596000" />
+      <workItem from="1459760519717" duration="2213000" />
     </task>
     <task id="LOCAL-00001" summary="add methods to user interface">
       <created>1457962181227</created>
@@ -1029,11 +1036,18 @@
       <option name="project" value="LOCAL" />
       <updated>1459282159959</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added partial Task manager,&#10;">
+      <created>1459762170417</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1459762170417</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106239000" />
+    <option name="totallyTimeSpent" value="106856000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1524,8 +1538,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        <state relative-caret-position="170">
+          <caret line="13" column="94" selection-start-line="13" selection-start-column="94" selection-end-line="13" selection-end-column="94" />
           <folding />
         </state>
       </provider>

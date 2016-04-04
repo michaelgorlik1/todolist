@@ -11,11 +11,9 @@
 @media (min-width: 568px) and (max-width: 992px) {
 
     body {
-        background: #afd9ee;
-    }
-
-    #speakers img {
-        max-width: 160px;
+        background: transparent url(../images/bg_cellPhone.png) no-repeat center center fixed;
+        background-size: cover;
+        height: 100%;
     }
 
 }

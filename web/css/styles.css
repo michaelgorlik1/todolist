@@ -7,23 +7,12 @@
     outline: none;
 }
 
-/* Mobile Devices Optimization */
-@media (min-width: 568px) and (max-width: 992px) {
-
-    body {
-        background: transparent url(../images/bg_cellPhone.png) no-repeat center center fixed;
-        background-size: cover;
-        height: 100%;
-    }
-
-}
-
 body {
     background: url(../images/bg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: 100%;
 }
 
 .login-form {

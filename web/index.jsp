@@ -42,6 +42,10 @@
             .collapsing ul li a:hover, .in ul li a:hover {
                 color: #f1f1f1 !important;
             }
+
+            body {
+                background-color: #2aabd2;
+            }
         }
     </style>
 </head>

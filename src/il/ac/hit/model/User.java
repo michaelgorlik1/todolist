@@ -12,6 +12,9 @@ public class User
 
     private String password;
 
+    /**
+     * Constructs a new User.
+     */
     public User()
     {
 
@@ -24,6 +27,7 @@ public class User
         setPassword(password);
     }
 
+    /** {@inheritDoc} */
     @Override
     public String toString()
     {
@@ -33,6 +37,7 @@ public class User
                 '}';
     }
 
+    /** {@inheritDoc} */
     @Override
     public int hashCode()
     {
@@ -43,36 +48,67 @@ public class User
         return result;
     }
 
+    /**
+     * Getter for property 'id'.
+     *
+     * @return Value for property 'id'.
+     */
     public int getId()
     {
         return id;
     }
 
+    /**
+     * Setter for property 'id'.
+     *
+     * @param id Value to set for property 'id'.
+     */
     public void setId(int id)
     {
         this.id = id;
     }
 
+    /**
+     * Getter for property 'name'.
+     *
+     * @return Value for property 'name'.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Setter for property 'name'.
+     *
+     * @param name Value to set for property 'name'.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Getter for property 'password'.
+     *
+     * @return Value for property 'password'.
+     */
     public String getPassword()
     {
         return password;
     }
 
+    /**
+     * Setter for property 'password'.
+     *
+     * @param password Value to set for property 'password'.
+     */
     public void setPassword(String password)
     {
         this.password = password;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean equals(Object obj)
     {

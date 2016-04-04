@@ -20,6 +20,18 @@
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/dom4j-1.6.1.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.0.Final.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/javassist-3.9.0.GA.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/lib/jta-1.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/lib/hibernate3.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/lib/antlr-2.7.6.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/lib/dom4j-1.6.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/lib/log4j-1.2.16.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/lib/slf4j-api-1.5.8.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/lib/javassist-3.9.0.GA.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/lib/slf4j-log4j12-1.5.6.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/lib/commons-collections-3.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/lib/mysql-connector-java-5.1.13-bin.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/lib/hibernate-jpa-2.0-api-1.0.0.Final.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/hibernate3.jar" />
         </element>
       </element>
       <element id="dir-copy" path="$PROJECT_DIR$/src" />

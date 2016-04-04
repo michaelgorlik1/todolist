@@ -24,7 +24,7 @@
     <script>
         $(function () {
             $(".datepicker").datepicker({minDate: 0});
-            $(".datepicker").datepicker({dateFormat: "dd/mm/yy"});
+            $(".datepicker").datepicker({dateFormat: 'dd/mm/yy'});
             $(".datepicker").datepicker();
         });
     </script>

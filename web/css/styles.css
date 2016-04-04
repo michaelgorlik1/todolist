@@ -7,8 +7,21 @@
     outline: none;
 }
 
+/* Mobile Devices Optimization */
+@media (min-width: 568px) and (max-width: 992px) {
+
+    body {
+        background: #afd9ee;
+    }
+
+    #speakers img {
+        max-width: 160px;
+    }
+
+}
+
 body {
-    background: url(../images/bgNew.jpg) no-repeat center center fixed;
+    background: url(../images/bg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

@@ -15,9 +15,59 @@
           rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+    <style>
+        .navbar {
+            background-color: #28a0a1;
+        }
+
+        .navbar-default .navbar-nav > li > a, .navbar-default .navbar-brand {
+            color: #f1f1f1;
+        }
+
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #f1f1f1;
+            background-color: #b27677;
+        }
+
+        @media only screen and (max-width: 766px) {
+            .collapsing, .in {
+                background-color: #f7f7f7;
+            }
+
+            .collapsing ul li a, .in ul li a {
+                color: #555 !important;
+            }
+
+            .collapsing ul li a:hover, .in ul li a:hover {
+                color: #f1f1f1 !important;
+            }
+        }
+    </style>
 </head>
 <body>
-
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">The ToDo list</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Info</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/register.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="/index.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <section class="container">
     <section class="login-form">

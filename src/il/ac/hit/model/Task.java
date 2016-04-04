@@ -5,85 +5,123 @@ import java.util.Date;
 /**
  * Created by artur on 11/03/2016.
  */
-public class
-Task
-{
+public class Task {
     private String title;
     private String description;
     private Date date;
     private int taskID;
     private int userID;
 
-    public Task()
-    {
+    /**
+     * Constructs a new Task.
+     */
+    public Task( ) {
     }
 
-    public Task(String title, String description, Date date, int taskID)
-    {
-        super();
+    public Task(String title, String description, Date date, int userID) {
+        super( );
         setTitle(title);
         setDescription(description);
         setDate(date);
-        setTaskID(taskID);
+        setUserID(userID);
     }
 
-    public int getUserID()
-    {
+    /**
+     * Getter for property 'userID'.
+     *
+     * @return Value for property 'userID'.
+     */
+    public int getUserID( ) {
         return userID;
     }
 
-    public void setUserID(int userID)
-    {
+    /**
+     * Setter for property 'userID'.
+     *
+     * @param userID Value to set for property 'userID'.
+     */
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 
-    public String getTitle()
-    {
+    /**
+     * Getter for property 'title'.
+     *
+     * @return Value for property 'title'.
+     */
+    public String getTitle( ) {
         return title;
     }
 
-    public void setTitle(String title)
-    {
+    /**
+     * Setter for property 'title'.
+     *
+     * @param title Value to set for property 'title'.
+     */
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getDescription()
-    {
+    /**
+     * Getter for property 'description'.
+     *
+     * @return Value for property 'description'.
+     */
+    public String getDescription( ) {
         return description;
     }
 
-    public void setDescription(String description)
-    {
+    /**
+     * Setter for property 'description'.
+     *
+     * @param description Value to set for property 'description'.
+     */
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public Date getDate()
-    {
+    /**
+     * Getter for property 'date'.
+     *
+     * @return Value for property 'date'.
+     */
+    public Date getDate( ) {
         return date;
     }
 
-    public void setDate(Date date)
-    {
-        if (date == null)
-        {
-            date = new Date();
+    /**
+     * Setter for property 'date'.
+     *
+     * @param date Value to set for property 'date'.
+     */
+    public void setDate(Date date) {
+        if (date == null) {
+            date = new Date( );
         }
         this.date = date;
     }
 
-    public int getTaskID()
-    {
+    /**
+     * Getter for property 'taskID'.
+     *
+     * @return Value for property 'taskID'.
+     */
+    public int getTaskID( ) {
         return taskID;
     }
 
-    public void setTaskID(int taskID)
-    {
+    /**
+     * Setter for property 'taskID'.
+     *
+     * @param taskID Value to set for property 'taskID'.
+     */
+    public void setTaskID(int taskID) {
         this.taskID = taskID;
     }
 
+    /** {@inheritDoc} */
     @Override
-    public String toString()
-    {
+    public String toString( ) {
         return "Task{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +

@@ -92,15 +92,12 @@ public class Controller extends HttpServlet
                     dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
                     dispatcher.forward(request, response);
                 }
-
                 break;
             }
             default:
                 request.getRequestDispatcher("/404Error.jsp").forward(request, response);
                 break;
         }
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

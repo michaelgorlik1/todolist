@@ -20,14 +20,8 @@
         <id name="taskID" type="int" column="ID">
             <generator class="increment"/>
         </id>
-        <property name="title">
-            <column name="TITLE"/>
-        </property>
         <property name="description">
             <column name="DESCRIPTION"/>
-        </property>
-        <property name="date">
-            <column name="DATE"/>
         </property>
         <property name="userID">
             <column name="USERID"/>

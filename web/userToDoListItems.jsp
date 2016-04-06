@@ -18,13 +18,71 @@
           rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+    <style>
+        .navbar {
+            background-color: #28a0a1;
+        }
 
+        .navbar-default .navbar-nav > li > a, .navbar-default .navbar-brand {
+            color: #f1f1f1;
+        }
+
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #f1f1f1;
+            background-color: #b27677;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .collapsing, .in {
+                background-color: #f7f7f7;
+            }
+
+            .collapsing ul li a, .in ul li a {
+                color: #555 !important;
+            }
+
+            .collapsing ul li a:hover, .in ul li a:hover {
+                color: #f1f1f1 !important;
+            }
+
+            body {
+                background-color: #3CB4A7;
+                background-image: none;
+            }
+        }
+    </style>
 </head>
 <body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">The ToDo list</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Info</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/controller/logout"><span class="glyphicon glyphicon-log-out"></span> Logout( ${userName})</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
 <section class="container">
     <section class="login-form">
         <h2>Hello, ${userName}</h2>
-        <form method="post" action="/controller/addTask">
+        <form method="post" action="/controller/addTask" role="login">
             <img src="../images/logo.png" class="img-responsive"/>
             <input type="text" name="taskInput" placeholder="Add a task" required class="form-control input-lg"/>
             <button type="submit" name="login" class="btn bt8n-lg btn-primary btn-block">Add</button>
@@ -35,16 +93,13 @@
 </section>
 <table class="table table-bordered">
     <tr>
-        <th align=left>ID</th>
         <th align=left>Description</th>
-        <th align=left>Due date</th>
-        <th align=left>Status</th>
     </tr>
 
 
     <%
-        String name = (String) request.getAttribute("userName");
-        List<Task> tasksList = (List<Task>) request.getAttribute("tasksList");
+        String name = (String) request.getServletContext().getAttribute("userName");
+        List<Task> tasksList = (List<Task>) request.getServletContext().getAttribute("tasksList");
         Iterator<Task> iterator;
         if (tasksList != null)
         {
@@ -53,15 +108,12 @@
             {
                 Task task = (Task) iterator.next();
 
-
-                out.print("<td>" + task.getDescription() + "</td>");
-                out.print("<td>" + task.getDate() + "</td>");
-                out.print("<td>" + task.getTitle() + "</td></tr>");
+                out.print("<td>" + task.getDescription() + "</td></tr>");
             }
         } else
         {
-            out.print("<td>" + name + "</td>");
-            out.print("<td>" + name + "</td>");
+            out.print("<td>" + null + "</td>");
+            out.print("<td>" + null + "</td>");
             out.print("<td>" + null + "</td></tr>");
         }
     %>

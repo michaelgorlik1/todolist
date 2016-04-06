@@ -121,7 +121,7 @@ public class ToDoListDAO implements IToDoListDAO
     }
 
     @Override
-    public List<Task> getTasksByUID(User user) throws ToDoListException
+    public List<Task> getTasksByUID(int userID) throws ToDoListException
     {
         Session session = factory.openSession();
         List<Task> tasksList = null;
@@ -129,7 +129,7 @@ public class ToDoListDAO implements IToDoListDAO
         {
             String hql = "FROM Task WHERE userID =:userId";
             Query query = session.createQuery(hql);
-            query.setParameter("userId", user.getId());
+            query.setParameter("userId", userID);
             tasksList = query.list();
         }
         catch (HibernateException e)

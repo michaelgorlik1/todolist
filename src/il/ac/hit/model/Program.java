@@ -1,6 +1,5 @@
 package il.ac.hit.model;
 
-import java.util.Date;
 import java.util.logging.Logger;
 
 /**
@@ -12,7 +11,7 @@ public class Program
     public static void main(String[] args)
     {
         User user = new User("natan", "12");
-        Task task = new Task("test", "desc", new Date(), user.getId());
+        //Task task = new Task("test", "desc", new Date(), user.getId());
 
         IToDoListDAO toDoListDAO = ToDoListDAO.getInstance();
         try

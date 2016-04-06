@@ -1,14 +1,12 @@
 package il.ac.hit.model;
 
-import java.util.Date;
-
 /**
  * Created by artur on 11/03/2016.
  */
 public class Task {
-    private String title;
+    /*private String title;
+    private Date date;*/
     private String description;
-    private Date date;
     private int taskID;
     private int userID;
 
@@ -18,13 +16,20 @@ public class Task {
     public Task( ) {
     }
 
-    public Task(String title, String description, Date date, int userID) {
+    public Task(String description, int userID)
+    {
+        super();
+        setDescription(description);
+        setUserID(userID);
+    }
+
+   /* public Task(String title, String description, Date date, int userID) {
         super( );
         setTitle(title);
         setDescription(description);
         setDate(date);
         setUserID(userID);
-    }
+    }*/
 
     /**
      * Getter for property 'userID'.
@@ -49,25 +54,26 @@ public class Task {
      *
      * @return Value for property 'title'.
      */
-    public String getTitle( ) {
+/*    public String getTitle( ) {
         return title;
-    }
+    }*/
 
     /**
      * Setter for property 'title'.
      *
      * @param title Value to set for property 'title'.
      */
-    public void setTitle(String title) {
+/*    public void setTitle(String title) {
         this.title = title;
-    }
+    }*/
 
     /**
      * Getter for property 'description'.
      *
      * @return Value for property 'description'.
      */
-    public String getDescription( ) {
+    public String getDescription()
+    {
         return description;
     }
 
@@ -85,21 +91,21 @@ public class Task {
      *
      * @return Value for property 'date'.
      */
-    public Date getDate( ) {
+/*    public Date getDate( ) {
         return date;
-    }
+    }*/
 
     /**
      * Setter for property 'date'.
      *
      * @param date Value to set for property 'date'.
      */
-    public void setDate(Date date) {
+/*    public void setDate(Date date) {
         if (date == null) {
             date = new Date( );
         }
         this.date = date;
-    }
+    }*/
 
     /**
      * Getter for property 'taskID'.
@@ -120,7 +126,7 @@ public class Task {
     }
 
     /** {@inheritDoc} */
-    @Override
+    /*@Override
     public String toString( ) {
         return "Task{" +
                 "title='" + title + '\'' +
@@ -128,5 +134,5 @@ public class Task {
                 ", date=" + date +
                 ", Id=" + taskID +
                 '}';
-    }
+    }*/
 }

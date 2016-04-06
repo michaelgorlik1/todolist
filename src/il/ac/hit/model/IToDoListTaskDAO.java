@@ -13,6 +13,8 @@ public interface IToDoListTaskDAO
 
     public void deleteTask(Task task) throws ToDoListException;
 
-    public List<Task> getTasksByUID(User user) throws ToDoListException;
+    public List<Task> getTasksByUID(int userID) throws ToDoListException;
+
+    // public List<Task> getTasksByUID(User user) throws ToDoListException;
 
 }

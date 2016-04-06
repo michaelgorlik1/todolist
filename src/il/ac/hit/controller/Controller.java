@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
+import java.util.List;
 
 /**
  * Created by artur on 17/03/2016.
@@ -19,11 +19,13 @@ public class Controller extends HttpServlet
 {
     IToDoListDAO toDoListDAO = ToDoListDAO.getInstance();
 
+    private User newUser;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         String path = request.getPathInfo();
         RequestDispatcher dispatcher = null;
-        User newUser = null;
+        newUser = null;
         switch (path)
         {
             case "/login":
@@ -36,16 +38,18 @@ public class Controller extends HttpServlet
                 {
                     toDoListDAO.checkIfPasswordMatchToUser(newUser);
                     newUser = toDoListDAO.getUser(newUser.getId());
-                    request.getSession().setAttribute("userID", newUser.getId());
-                    request.getSession().setAttribute("userName", newUser.getName());
+                    List<Task> tasksList = toDoListDAO.getTasksByUID(newUser.getId());
 
-                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
-                    dispatcher.forward(request, response);
+                    request.getServletContext().setAttribute("userID", newUser.getId());
+                    request.getServletContext().setAttribute("userName", newUser.getName());
+                    request.getServletContext().setAttribute("tasksList", tasksList);
+
+                    request.getRequestDispatcher("/userToDoListItems.jsp").forward(request, response);
 
                 }
                 catch (ToDoListException e)
                 {
-                    request.setAttribute("userMessage", e.getMessage());
+                    request.getServletContext().setAttribute("userMessage", e.getMessage());
                     dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
                     dispatcher.forward(request, response);
                 }
@@ -61,14 +65,14 @@ public class Controller extends HttpServlet
                 try
                 {
                     toDoListDAO.addUser(newUser);
-                    request.getSession().setAttribute("userID", newUser.getId());
-                    request.getSession().setAttribute("userName", newUser.getName());
+                    request.getServletContext().setAttribute("userID", newUser.getId());
+                    request.getServletContext().setAttribute("userName", newUser.getName());
                     dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
                     dispatcher.forward(request, response);
                 }
                 catch (ToDoListException e)
                 {
-                    request.setAttribute("userMessage", e.getMessage());
+                    request.getServletContext().setAttribute("userMessage", e.getMessage());
                     dispatcher = getServletContext().getRequestDispatcher("/register.jsp");
                     dispatcher.forward(request, response);
                 }
@@ -76,12 +80,15 @@ public class Controller extends HttpServlet
             }
             case "/addTask":
             {
-                String taskText = request.getParameter("taskText");
-                int userID = (int) (request.getSession().getAttribute("userID"));
-                Task task = new Task("title", taskText, new Date(), userID);
+                String taskText = request.getParameter("taskInput");
+                int userID = Integer.parseInt(String.valueOf(request.getServletContext().getAttribute("userID")));
+                Task task = new Task(taskText, userID);
                 try
                 {
                     toDoListDAO.addTask(task);
+                    List<Task> tasksList = toDoListDAO.getTasksByUID(userID);
+
+                    request.getServletContext().setAttribute("tasksList", tasksList);
                     dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
                     dispatcher.forward(request, response);
                 }
@@ -92,6 +99,13 @@ public class Controller extends HttpServlet
                     dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
                     dispatcher.forward(request, response);
                 }
+                break;
+            }
+            case "/logout":
+            {
+                request.getSession().invalidate();
+                dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+                dispatcher.forward(request, response);
                 break;
             }
             default:

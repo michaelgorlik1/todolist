@@ -121,6 +121,33 @@ public class ToDoListDAO implements IToDoListDAO
     }
 
     @Override
+    public List<Task> getTasksByUID(int userID) throws ToDoListException
+    {
+        Session session = factory.openSession();
+        List<Task> tasksList = null;
+        try
+        {
+            String hql = "FROM Task WHERE userID =:userId";
+            Query query = session.createQuery(hql);
+            query.setParameter("userId", userID);
+            tasksList = query.list();
+        }
+        catch (HibernateException e)
+        {
+            e.printStackTrace();
+            throw new ToDoListException("Couldn't get tasks list from the database");
+        }
+        finally
+        {
+            if (session != null)
+            {
+                session.close();
+            }
+            return tasksList;
+        }
+    }
+
+    @Override
     public void addUser(User user) throws ToDoListException
     {
         Session session = factory.openSession();
@@ -267,6 +294,7 @@ public class ToDoListDAO implements IToDoListDAO
             {
                 if (users.getName().equals(user.getName()) && users.getPassword().equals(user.getPassword()))
                 {
+                    user.setId(users.getId());
                     return;
                 }
             }
@@ -281,8 +309,7 @@ public class ToDoListDAO implements IToDoListDAO
         {
             Session session = factory.openSession();
             session.beginTransaction();
-            String query = "FROM User WHERE ID = :userID";
-            List<User> users = session.createQuery(query).list();
+            List<User> users = session.createQuery("from User where ID = " + userID).list();
             session.close();
 
             if (users.size() == 1)

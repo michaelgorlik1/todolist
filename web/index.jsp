@@ -30,7 +30,7 @@
             background-color: #b27677;
         }
 
-        @media only screen and (max-width: 766px) {
+        @media only screen and (max-width: 1024px) {
             .collapsing, .in {
                 background-color: #f7f7f7;
             }
@@ -44,7 +44,8 @@
             }
 
             body {
-                background-color: #2aabd2;
+                background-color: #3CB4A7;
+                background-image: none;
             }
         }
     </style>

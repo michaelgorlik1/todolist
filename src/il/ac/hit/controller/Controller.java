@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by artur on 17/03/2016.
@@ -36,11 +37,13 @@ public class Controller extends HttpServlet
                 {
                     toDoListDAO.checkIfPasswordMatchToUser(newUser);
                     newUser = toDoListDAO.getUser(newUser.getId());
-                    request.getSession().setAttribute("userID", newUser.getId());
-                    request.getSession().setAttribute("userName", newUser.getName());
+                    List<Task> tasksList = toDoListDAO.getTasksByUID(newUser);
 
-                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
-                    dispatcher.forward(request, response);
+                    request.setAttribute("userID", newUser.getId());
+                    request.setAttribute("userName", newUser.getName());
+                    request.setAttribute("tasksList", tasksList);
+
+                    request.getRequestDispatcher("/userToDoListItems.jsp").forward(request, response);
 
                 }
                 catch (ToDoListException e)
@@ -76,12 +79,15 @@ public class Controller extends HttpServlet
             }
             case "/addTask":
             {
-                String taskText = request.getParameter("taskText");
-                int userID = (int) (request.getSession().getAttribute("userID"));
+                String taskText = request.getParameter("taskInput");
+                int userID = (int) (request.getAttribute("userID"));
                 Task task = new Task("title", taskText, new Date(), userID);
                 try
                 {
                     toDoListDAO.addTask(task);
+                    List<Task> tasksList = toDoListDAO.getTasksByUID(newUser);
+
+                    request.setAttribute("tasksList", tasksList);
                     dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
                     dispatcher.forward(request, response);
                 }

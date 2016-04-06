@@ -1,5 +1,7 @@
 package il.ac.hit.model;
 
+import java.util.List;
+
 /**
  * Created by artur on 07/03/2016.
  */
@@ -11,5 +13,6 @@ public interface IToDoListTaskDAO
 
     public void deleteTask(Task task) throws ToDoListException;
 
+    public List<Task> getTasksByUID(User user) throws ToDoListException;
 
 }

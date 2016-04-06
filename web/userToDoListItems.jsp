@@ -7,9 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"
          import="il.ac.hit.model.Task"
-         import="java.util.Iterator" %>
+         import="java.util.Collections" %>
+<%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.List" %>
-<html>
+<html lang="he">
+
 <head>
     <meta name="viewport" content="width=1,initial-scale=1,user-scalable=1"/>
     <title>The Todo List</title>
@@ -54,6 +56,8 @@
     </style>
 </head>
 <body>
+
+
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -88,36 +92,36 @@
             <button type="submit" name="login" class="btn bt8n-lg btn-primary btn-block">Add</button>
 
             <div style="color: #FF0000;">${userMessage}</div>
+            <table class="table table-bordered">
+                <tr>
+                    <th align=left>Description</th>
+                </tr>
+
+
+                <%
+                    String name = (String) request.getServletContext( ).getAttribute("userName");
+                    List<Task> tasksList = (List<Task>) request.getServletContext( ).getAttribute("tasksList");
+                    Collections.reverse(tasksList);
+
+                    Iterator<Task> iterator;
+                    if (tasksList != null) {
+                        iterator = tasksList.iterator( );
+                        while (iterator.hasNext( )) {
+                            Task task = (Task) iterator.next( );
+
+                            out.print("<td>" + task.getDescription( ) + "</td></tr>");
+                        }
+                    } else {
+                        out.print("<td>" + null + "</td>");
+                        out.print("<td>" + null + "</td>");
+                        out.print("<td>" + null + "</td></tr>");
+                    }
+                %>
+            </table>
         </form>
     </section>
 </section>
-<table class="table table-bordered">
-    <tr>
-        <th align=left>Description</th>
-    </tr>
 
-
-    <%
-        String name = (String) request.getServletContext().getAttribute("userName");
-        List<Task> tasksList = (List<Task>) request.getServletContext().getAttribute("tasksList");
-        Iterator<Task> iterator;
-        if (tasksList != null)
-        {
-            iterator = tasksList.iterator();
-            while (iterator.hasNext())
-            {
-                Task task = (Task) iterator.next();
-
-                out.print("<td>" + task.getDescription() + "</td></tr>");
-            }
-        } else
-        {
-            out.print("<td>" + null + "</td>");
-            out.print("<td>" + null + "</td>");
-            out.print("<td>" + null + "</td></tr>");
-        }
-    %>
-</table>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 

@@ -65,8 +65,6 @@
             <input type="text" name="userName" placeholder="User Name" required class="form-control input-lg"/>
             <input type="password" name="password" placeholder="Password" required class="form-control input-lg"/>
 
-            <label><input type="checkbox" name="rememberMeCheckbox" checked>Remember me </label>
-
             <button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Sign in</button>
             <div style="color: #FF0000;">${userMessage}</div>
             <div>

@@ -17,6 +17,7 @@
           rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+
     <style>
         .navbar {
             background-color: #28a0a1;
@@ -51,46 +52,34 @@
             }
         }
     </style>
+
 </head>
+
 <body>
 
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">The ToDo list</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Info</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/register.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="/index.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<jsp:include page="/menu.jsp"/>
+<%
+    response.sendRedirect(request.getContextPath() + "/Controller/index");
 
-<section class="container">
-    <section class="login-form">
-        <form method="post" action="/controller/login" role="login">
-            <img src="../images/logo.png" class="img-responsive" alt=""/>
-            <input type="text" name="userName" placeholder="User Name" required class="form-control input-lg"/>
-            <input type="password" name="password" placeholder="Password" required class="form-control input-lg"/>
-            <button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Sign in</button>
-            <div style="color: #FF0000;">${userMessage}</div>
-            <div>
-                <a href="/register.jsp">Create account</a>
-            </div>
-        </form>
-    </section>
-</section>
+%>
+
+<%--<section class="container">--%>
+<%--<section class="login-form">--%>
+<%--<form method="post" action="/controller/login" role="login">--%>
+<%--<img src="../images/logo.png" class="img-responsive" alt=""/>--%>
+<%--<input type="text" name="userName" placeholder="User Name" required class="form-control input-lg"/>--%>
+<%--<input type="password" name="password" placeholder="Password" required class="form-control input-lg"/>--%>
+
+<%--<label><input type="checkbox" name="rememberMeCheckbox" checked>Remember me </label>--%>
+
+<%--<button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Sign in</button>--%>
+<%--<div style="color: #FF0000;">${userMessage}</div>--%>
+<%--<div>--%>
+<%--<a href="/register.jsp">Create account</a>--%>
+<%--</div>--%>
+<%--</form>--%>
+<%--</section>--%>
+<%--</section>--%>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>

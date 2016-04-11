@@ -94,12 +94,13 @@
                 <label id="taskID"><%out.print(task.getDescription( )); %></label>
 
                 <span id="result1"> </span>
-                <button type="button" id="btnEdit" class="btn bt8n-lg btn-info btn-block">Edit</button>
+                <input type="button" id="btnEdit" value="edit" class="btn bt8n-lg btn-info btn-block">
 
                 <script type="text/javascript">
                     $(document).ready(function () {
                         $('#btnEdit').click(function () {
                             var task = $('#taskID').val();
+                            print(task);
                             $.ajax({
                                 type: 'POST',
                                 data: {taskId: taskId},

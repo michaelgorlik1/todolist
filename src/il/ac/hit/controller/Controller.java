@@ -50,7 +50,7 @@ public class Controller extends HttpServlet
                 catch (ToDoListException e)
                 {
                     request.getServletContext().setAttribute("userMessage", e.getMessage());
-                    dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+                    dispatcher = getServletContext( ).getRequestDispatcher("/index.jsp");
                     dispatcher.forward(request, response);
                 }
 

@@ -52,34 +52,29 @@
             }
         }
     </style>
-
 </head>
 
 <body>
 
 <jsp:include page="/menu.jsp"/>
-<%
-    response.sendRedirect(request.getContextPath() + "/Controller/index");
 
-%>
+<section class="container">
+    <section class="login-form">
+        <form method="post" action="/controller/login" role="login">
+            <img src="../images/logo.png" class="img-responsive" alt=""/>
+            <input type="text" name="userName" placeholder="User Name" required class="form-control input-lg"/>
+            <input type="password" name="password" placeholder="Password" required class="form-control input-lg"/>
 
-<%--<section class="container">--%>
-<%--<section class="login-form">--%>
-<%--<form method="post" action="/controller/login" role="login">--%>
-<%--<img src="../images/logo.png" class="img-responsive" alt=""/>--%>
-<%--<input type="text" name="userName" placeholder="User Name" required class="form-control input-lg"/>--%>
-<%--<input type="password" name="password" placeholder="Password" required class="form-control input-lg"/>--%>
+            <label><input type="checkbox" name="rememberMeCheckbox" checked>Remember me </label>
 
-<%--<label><input type="checkbox" name="rememberMeCheckbox" checked>Remember me </label>--%>
-
-<%--<button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Sign in</button>--%>
-<%--<div style="color: #FF0000;">${userMessage}</div>--%>
-<%--<div>--%>
-<%--<a href="/register.jsp">Create account</a>--%>
-<%--</div>--%>
-<%--</form>--%>
-<%--</section>--%>
-<%--</section>--%>
+            <button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Sign in</button>
+            <div style="color: #FF0000;">${userMessage}</div>
+            <div>
+                <a href="/register.jsp">Create account</a>
+            </div>
+        </form>
+    </section>
+</section>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>

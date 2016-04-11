@@ -75,9 +75,12 @@
                     <th align=left>Description</th>
                 </tr>
 
-
+                <%--"<td>" + "<button type=\"button\"  action="/controller/editTask"  name=\"btnEdit\" class=\"btn bt8n-lg btn-info btn-block\">Edit</button>" +--%>
                 <%
+
+
                     String name = (String) request.getServletContext( ).getAttribute("userName");
+                    String taskID = (String) request.getServletContext( ).getAttribute("taskID");
                     List<Task> tasksList = (List<Task>) request.getServletContext( ).getAttribute("tasksList");
                     Collections.reverse(tasksList);
 
@@ -87,13 +90,37 @@
                         while (iterator.hasNext( )) {
                             Task task = (Task) iterator.next( );
 
-                            out.print("<td>" + task.getDescription( ) + "</td></tr>");
+                %>
+                <label id="taskID"><%out.print(task.getDescription( )); %></label>
+
+                <span id="result1"> </span>
+                <input type="button" id="btnEdit" value="edit" class="btn bt8n-lg btn-info btn-block">
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $('#btnEdit').click(function () {
+                            var task = $('#taskID').val();
+                            print(task);
+                            $.ajax({
+                                type: 'POST',
+                                data: {taskId: taskId},
+                                url: '/controller/editTask',
+                                success: function (result) {
+                                    $('#result1').html(result);
+                                }
+                            });
+                        });
+                    });
+                </script>
+
+                <%
                         }
                     } else {
                         out.print("<td>" + null + "</td>");
                         out.print("<td>" + null + "</td>");
                         out.print("<td>" + null + "</td></tr>");
                     }
+
                 %>
             </table>
         </form>
@@ -105,8 +132,12 @@
 
 </body>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function fnc() {
+        document.getElementById("atext").innerHTML = "tested";
+        action = "/controller/editTask";
+    }
+</script>
 
 </html>
 

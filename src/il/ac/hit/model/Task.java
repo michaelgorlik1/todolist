@@ -126,13 +126,11 @@ public class Task {
     }
 
     /** {@inheritDoc} */
-    /*@Override
+    @Override
     public String toString( ) {
         return "Task{" +
-                "title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", date=" + date +
                 ", Id=" + taskID +
                 '}';
-    }*/
+    }
 }

@@ -4,6 +4,7 @@ import il.ac.hit.model.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import java.util.List;
  * Created by artur on 17/03/2016.
  */
 
+@WebServlet("/controller/*")
 public class Controller extends HttpServlet
 {
     IToDoListDAO toDoListDAO = ToDoListDAO.getInstance();
@@ -28,19 +30,6 @@ public class Controller extends HttpServlet
         newUser = null;
         switch (path)
         {
-            case "/index":
-            {
-                try
-                {
-                    toDoListDAO.checkIfPasswordMatchToUser(new User("test", "te"));
-                }
-                catch (ToDoListException e)
-                {
-                    e.printStackTrace();
-                }
-                break;
-            }
-
             case "/login":
             {
                 String userName = request.getParameter("userName");
@@ -63,7 +52,7 @@ public class Controller extends HttpServlet
                 catch (ToDoListException e)
                 {
                     request.getServletContext().setAttribute("userMessage", e.getMessage());
-                    dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+                    dispatcher = getServletContext( ).getRequestDispatcher("/index.jsp");
                     dispatcher.forward(request, response);
                 }
 
@@ -121,9 +110,14 @@ public class Controller extends HttpServlet
                 dispatcher.forward(request, response);
                 break;
             }
+            case "/editTask": {
+                String taskText = request.getParameter("taskInput");
+
+            }
             default:
                 request.getRequestDispatcher("/404Error.jsp").forward(request, response);
                 break;
+
         }
     }
 

@@ -4,7 +4,6 @@ import il.ac.hit.model.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +13,7 @@ import java.util.List;
 /**
  * Created by artur on 17/03/2016.
  */
-@WebServlet("/controller/*")
+
 public class Controller extends HttpServlet
 {
     IToDoListDAO toDoListDAO = ToDoListDAO.getInstance();
@@ -23,12 +22,25 @@ public class Controller extends HttpServlet
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        request.getServletContext( ).removeAttribute("userMessage");
+        request.getServletContext().removeAttribute("userMessage");
         String path = request.getPathInfo();
         RequestDispatcher dispatcher = null;
         newUser = null;
         switch (path)
         {
+            case "/index":
+            {
+                try
+                {
+                    toDoListDAO.checkIfPasswordMatchToUser(new User("test", "te"));
+                }
+                catch (ToDoListException e)
+                {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
             case "/login":
             {
                 String userName = request.getParameter("userName");
@@ -51,7 +63,7 @@ public class Controller extends HttpServlet
                 catch (ToDoListException e)
                 {
                     request.getServletContext().setAttribute("userMessage", e.getMessage());
-                    dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+                    dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
                     dispatcher.forward(request, response);
                 }
 
@@ -124,5 +136,14 @@ public class Controller extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         doPost(request, response);
+//        String patch = request.getPathInfo();
+//        switch (patch)
+//        {
+//            case "/*":
+//            {
+//                request.getRequestDispatcher("/register.jsp").forward(request, response);
+//            }
+//
+//        }
     }
 }

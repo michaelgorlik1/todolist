@@ -76,7 +76,17 @@
                 </tr>
 
 
+                <script type="text/javascript">
+                    function fnc() {
+                        document.getElementById("atext").innerHTML = "tested";
+                    }
+                </script>
+
+                <label id="atext">test</label>
+                <input type="button" onClick="fnc()" value="click me">
                 <%
+
+
                     String name = (String) request.getServletContext( ).getAttribute("userName");
                     List<Task> tasksList = (List<Task>) request.getServletContext( ).getAttribute("tasksList");
                     Collections.reverse(tasksList);
@@ -86,14 +96,18 @@
                         iterator = tasksList.iterator( );
                         while (iterator.hasNext( )) {
                             Task task = (Task) iterator.next( );
-                            out.print("<td>" + task.getDescription( ) + "<td>" + "<button type=\"edit\" name=\"edit\" class=\"btn bt8n-lg btn-info btn-block\">Edit</button>" +
-                                    "<button type=\"edit\" name=\"edit\" class=\"btn bt8n-lg btn-danger btn-block\">Delete</button>" + "</tr>");
+                            out.print("<td>" + task.getDescription( ) +
+                                    "<td>" + "<button type=\"button\"  action=\"/controller/editTask\"  name=\"btnEdit\" class=\"btn bt8n-lg btn-info btn-block\">Edit</button>" +
+                                    "<button type=\"button\" action=\"/controller/deleteTask\" name=\"btnDelete\" class=\"btn bt8n-lg btn-danger btn-block\">Delete</button>" +
+                                    "</td>" +
+                                    "</tr>");
                         }
                     } else {
                         out.print("<td>" + null + "</td>");
                         out.print("<td>" + null + "</td>");
                         out.print("<td>" + null + "</td></tr>");
                     }
+
                 %>
             </table>
         </form>

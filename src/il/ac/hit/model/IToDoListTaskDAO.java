@@ -11,6 +11,8 @@ public interface IToDoListTaskDAO
 
     public void updateTask(Task task) throws ToDoListException;
 
+    public Task getTask(int taskID) throws ToDoListException;
+
     public void deleteTask(Task task) throws ToDoListException;
 
     public List<Task> getTasksByUID(int userID) throws ToDoListException;

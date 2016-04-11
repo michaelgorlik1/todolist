@@ -92,6 +92,32 @@ public class ToDoListDAO implements IToDoListDAO
     }
 
     @Override
+    public Task getTask(int taskID) throws ToDoListException
+    {
+
+        try
+        {
+            Session session = factory.openSession();
+            session.beginTransaction();
+            List<Task> items = session.createQuery("from Task where id=" + taskID).list();
+            session.close();
+
+            if (items.size() == 1)
+            {
+                return items.get(0);
+            }
+            return null;
+        }
+        catch (HibernateException e)
+        {
+            throw new HibernateException(e.getMessage());
+        }
+
+
+    }
+
+
+    @Override
     public void deleteTask(Task task) throws ToDoListException
     {
         Session session = factory.openSession();

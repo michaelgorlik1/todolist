@@ -111,13 +111,32 @@ public class Controller extends HttpServlet
                 break;
             }
             case "/editTask": {
-                String taskText = request.getParameter("taskInput");
+                String taskText = request.getParameter("clickedId");
+                break;
+            }
+            case "/removeTask":
+            {
+                String text = "<br>Message from servlet<br>"; //message you will recieve
+                String taskID = request.getParameter("taskID");
 
+                Task deletedTask = null;
+                try
+                {
+                    deletedTask = toDoListDAO.getTask(Integer.parseInt(taskID));
+                    toDoListDAO.deleteTask(deletedTask);
+                }
+                catch (ToDoListException e)
+                {
+                    e.printStackTrace();
+                    request.getServletContext().setAttribute("userMessage", e.getMessage());
+                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
+                    dispatcher.forward(request, response);
+                }
+                break;
             }
             default:
                 request.getRequestDispatcher("/404Error.jsp").forward(request, response);
                 break;
-
         }
     }
 

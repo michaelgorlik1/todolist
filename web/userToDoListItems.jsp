@@ -70,75 +70,136 @@
             <button type="submit" name="login" class="btn bt8n-lg btn-primary btn-block">Add</button>
 
             <div style="color: #FF0000;">${userMessage}</div>
-            <table class="table table-bordered">
-                <tr>
-                    <th align=left>Description</th>
-                </tr>
+            <%--<table class="table table-bordered">--%>
+            <%--<tr>--%>
+            <%--<th align=left>Description</th>--%>
+            <%--</tr>--%>
 
-                <%--"<td>" + "<button type=\"button\"  action="/controller/editTask"  name=\"btnEdit\" class=\"btn bt8n-lg btn-info btn-block\">Edit</button>" +--%>
-                <%
+            <%--&lt;%&ndash;"<td>" + "<button type=\"button\"  action="/controller/editTask"  name=\"btnEdit\" class=\"btn bt8n-lg btn-info btn-block\">Edit</button>" +&ndash;%&gt;--%>
+            <%--<%--%>
 
 
-                    String name = (String) request.getServletContext( ).getAttribute("userName");
-                    String taskID = (String) request.getServletContext( ).getAttribute("taskID");
-                    List<Task> tasksList = (List<Task>) request.getServletContext( ).getAttribute("tasksList");
-                    Collections.reverse(tasksList);
+            <%--String name = (String) request.getServletContext( ).getAttribute("userName");--%>
+            <%--String taskID = (String) request.getServletContext( ).getAttribute("taskID");--%>
+            <%--List<Task> tasksList = (List<Task>) request.getServletContext( ).getAttribute("tasksList");--%>
+            <%--Collections.reverse(tasksList);--%>
 
-                    Iterator<Task> iterator;
-                    if (tasksList != null) {
-                        iterator = tasksList.iterator( );
-                        while (iterator.hasNext( )) {
-                            Task task = (Task) iterator.next( );
+            <%--Iterator<Task> iterator;--%>
+            <%--if (tasksList != null) {--%>
+            <%--iterator = tasksList.iterator( );--%>
+            <%--while (iterator.hasNext( )) {--%>
+            <%--Task task = (Task) iterator.next( );--%>
 
-                %>
-                <label id="taskID"><%out.print(task.getDescription( )); %></label>
+            <%--%>--%>
+            <%--<label id="taskID"><%out.print(task.getDescription( )); %></label>--%>
 
-                <span id="result1"> </span>
-                <input type="button" id="btnEdit" value="edit" class="btn bt8n-lg btn-info btn-block">
+            <%--<span id="result1"> </span>--%>
+            <%--<input type="button" id="btnEdit" value="edit" class="btn bt8n-lg btn-info btn-block">--%>
 
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#btnEdit').click(function () {
-                            var task = $('#taskID').val();
-                            print(task);
-                            $.ajax({
-                                type: 'POST',
-                                data: {taskId: taskId},
-                                url: '/controller/editTask',
-                                success: function (result) {
-                                    $('#result1').html(result);
-                                }
-                            });
-                        });
-                    });
-                </script>
+            <%--<script type="text/javascript">--%>
+            <%--$(document).ready(function () {--%>
+            <%--$('#btnEdit').click(function () {--%>
+            <%--var task = $('#taskID').val();--%>
+            <%--print(task);--%>
+            <%--$.ajax({--%>
+            <%--type: 'POST',--%>
+            <%--data: {taskId: taskId},--%>
+            <%--url: '/controller/editTask',--%>
+            <%--success: function (result) {--%>
+            <%--$('#result1').html(result);--%>
+            <%--}--%>
+            <%--});--%>
+            <%--});--%>
+            <%--});--%>
+            <%--</script>--%>
 
-                <%
-                        }
-                    } else {
-                        out.print("<td>" + null + "</td>");
-                        out.print("<td>" + null + "</td>");
-                        out.print("<td>" + null + "</td></tr>");
-                    }
+            <%--<%--%>
+            <%--}--%>
+            <%--} else {--%>
+            <%--out.print("<td>" + null + "</td>");--%>
+            <%--out.print("<td>" + null + "</td>");--%>
+            <%--out.print("<td>" + null + "</td></tr>");--%>
+            <%--}--%>
 
-                %>
-            </table>
+            <%--%>--%>
+            <%--</table>--%>
         </form>
+        <table class="table table-bordered">
+            <tr>
+                <th align="center">Description</th>
+                <th align="center">Action</th>
+            </tr>
+
+            <%
+                List<Task> tasksList = (List<Task>) request.getServletContext().getAttribute("tasksList");
+                Collections.reverse(tasksList);
+
+                Iterator<Task> iterator;
+                if (tasksList != null)
+                {
+                    iterator = tasksList.iterator();
+                    while (iterator.hasNext())
+                    {
+                        Task task = (Task) iterator.next();
+            %>
+            <tr>
+                <td>
+                    <label id="taskID"><%out.print(task.getDescription()); %></label>
+                </td>
+                <td>
+                    <button id="<%=task.getTaskID()%>" class="btnDelete">Delete</button>
+                </td>
+                <div id="somediv"></div>
+            </tr>
+            <%
+                    }
+                }
+            %>
+
+
+        </table>
     </section>
 </section>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="../bootstrap/js/bootstrap.min.js"></script>
-
 </body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
 
 <script type="text/javascript">
-    function fnc() {
-        document.getElementById("atext").innerHTML = "tested";
-        action = "/controller/editTask";
-    }
-</script>
+    $(document).ready(function () {
+        $('.btnDelete').click(function () {
+            //servletCall(this.id);
+            var parent = $(this).parent().parent();
 
+            $.ajax(
+                    servletCall(this.id));
+            parent.fadeOut('slow', function () {
+                        $(this).remove();
+                    }
+            );
+        });
+
+    });
+    function servletCall(taskID) {
+        $.post(
+                "removeTask",
+                {taskID: taskID}
+                /*
+                 , //meaasge you want to send
+                 function (result) {
+                 $('#somediv').html('Here is your result : <strong>' + result + '</strong>'); //message you want to show
+                 }
+                 */
+        );
+
+    }
+    ;
+
+</script>
 </html>
 
 

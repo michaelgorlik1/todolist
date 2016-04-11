@@ -86,8 +86,12 @@
                         iterator = tasksList.iterator( );
                         while (iterator.hasNext( )) {
                             Task task = (Task) iterator.next( );
+                            out.print("<td>" + task.getDescription() + "<td>" + "<button type=\"edit\" name=\"edit\" class=\"btn bt8n-lg btn-info btn-block\">Edit</button>" +
+                                    "<button type=\"edit\" name=\"edit\" class=\"btn bt8n-lg btn-danger btn-block\">Delete</button>" + "</tr>");
+                <%--%>--%>
 
-                            out.print("<td>" + task.getDescription( ) + "</td></tr>");
+                <%--<button type="edit" name="edit" class="btn bt8n-lg btn-info btn-block" onclick="e">Edit</button>--%>
+                <%--<%--%>
                         }
                     } else {
                         out.print("<td>" + null + "</td>");

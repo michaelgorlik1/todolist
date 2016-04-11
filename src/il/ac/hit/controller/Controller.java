@@ -28,19 +28,6 @@ public class Controller extends HttpServlet
         newUser = null;
         switch (path)
         {
-            case "/index":
-            {
-                try
-                {
-                    toDoListDAO.checkIfPasswordMatchToUser(new User("test", "te"));
-                }
-                catch (ToDoListException e)
-                {
-                    e.printStackTrace();
-                }
-                break;
-            }
-
             case "/login":
             {
                 String userName = request.getParameter("userName");

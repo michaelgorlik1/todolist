@@ -70,6 +70,7 @@
             <button type="submit" name="login" class="btn bt8n-lg btn-primary btn-block">Add</button>
 
             <div style="color: #FF0000;">${userMessage}</div>
+
             <%--<table class="table table-bordered">--%>
             <%--<tr>--%>
             <%--<th align=left>Description</th>--%>
@@ -124,7 +125,8 @@
             <%--%>--%>
             <%--</table>--%>
         </form>
-        <table class="table table-bordered">
+
+        <table class="table table-bordered" id="tabledata">
             <tr>
                 <th align="center">Description</th>
                 <th align="center">Action</th>
@@ -144,10 +146,11 @@
             %>
             <tr>
                 <td>
-                    <label id="taskID"><%out.print(task.getDescription()); %></label>
+                    <label id="<%=task.getTaskID()%>"><%out.print(task.getDescription()); %></label>
                 </td>
                 <td>
                     <button id="<%=task.getTaskID()%>" class="btnDelete">Delete</button>
+                    <button id="<%=task.getTaskID()%>" class="btnEdit">Edit</button>
                 </td>
                 <div id="somediv"></div>
             </tr>
@@ -155,9 +158,84 @@
                     }
                 }
             %>
+        </table>
 
+
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th class="">Description</th>
+                <th class="">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td style="text-align:center;" class="">1</td>
+                <td style="text-align:center;">
+                    <button class="btn btn-success" data-toggle="modal" data-target="#myModal" contenteditable="false">
+                        Edit
+                    </button>
+                </td>
+
+                    <%
+                List<Task> tasksList2 = (List<Task>) request.getServletContext().getAttribute("tasksList");
+                Collections.reverse(tasksList);
+
+                Iterator<Task> iterator2;
+                if (tasksList != null)
+                {
+                    iterator2 = tasksList2.iterator();
+                    while (iterator2.hasNext())
+                    {
+                        Task task = (Task) iterator2.next();
+            %>
+            <tr>
+                <td style="text-align:center;"><%out.print(task.getDescription());%></td>
+                <td>
+                    <button id="<%=task.getTaskID()%>" class="btnDelete">Delete</button>
+                    <button id="<%=task.getTaskID()%>" class="btn btn-success" data-toggle="modal"
+                            data-target="#myModal" contenteditable="false">Edit
+                    </button>
+                </td>
+            </tr>
+            <%
+                    }
+                }
+            %>
+
+            </tr>
+            </tbody>
 
         </table>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content"></div>
+            </div>
+            <div class="modal-dialog">
+                <div class="modal-content"></div>
+            </div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"
+                                                                                       class="">×</span><span
+                                class="sr-only">Close</span>
+
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+
+                    </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 </section>
 
@@ -166,38 +244,81 @@
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+    $(".btn[data-target='#myModal']").click(function () {
+
+
+        var columnHeadings = $("thead th").map(function () {
+            return $(this).text();
+        }).get();
+        columnHeadings.pop();
+        var columnValues = $(this).parent().siblings().map(function () {
+            return $(this).text();
+        }).get();
+        var modalBody = $('<div id="modalContent"></div>');
+
+        var idk = $(this).attr('id');
+
+        var modalForm = $('<form role="form" name="modalForm" action="/controller/editTask" method="post"></form>');
+        $.each(columnHeadings, function (i, columnHeader) {
+            var formGroup = $('<div class="form-group"></div>');
+            formGroup.append('<label for="' + columnHeader + '">' + columnHeader + '</label>');
+            formGroup.append('<input class="form-control"  name="' + columnHeader + i + '" id="' + columnHeader + i + '" value="' + columnValues + '" />');
+            formGroup.append('<input type="hidden" class="form-control"  name="taskID" id="' + columnHeader + i + '" value="' + idk + '" />');
+            modalForm.append(formGroup);
+        });
+        modalBody.append(modalForm);
+        $('.modal-body').html(modalBody);
+    });
+    $('.modal-footer .btn-primary').click(function () {
+        $('form[name="modalForm"]').submit();
+    });
+</script>
 
 
 <script type="text/javascript">
     $(document).ready(function () {
+        var parent = $(this).parent().parent();
         $('.btnDelete').click(function () {
-            //servletCall(this.id);
-            var parent = $(this).parent().parent();
-
             $.ajax(
-                    servletCall(this.id));
+                    removeFromDB(this.id));
             parent.fadeOut('slow', function () {
                         $(this).remove();
                     }
             );
         });
 
-    });
-    function servletCall(taskID) {
-        $.post(
-                "removeTask",
-                {taskID: taskID}
-                /*
-                 , //meaasge you want to send
-                 function (result) {
-                 $('#somediv').html('Here is your result : <strong>' + result + '</strong>'); //message you want to show
-                 }
-                 */
-        );
+        function removeFromDB(taskID) {
+            $.post(
+                    "removeTask",
+                    {taskID: taskID}
+            );
+        };
 
-    }
-    ;
+        $('.btnEdit').click(function () {
+            $.ajax(editFromDB(this.id));
+            parent.fadeOut('slow', function () {
+                        $(this).remove();
+                    }
+            );
+        });
+        function editFromDB(taskID) {
+            $.post(
+                    "editTask",
+                    {taskID: taskID}
+            );
+        };
+
+
+    });
+    /*new*/
+
+
+    /*new end*/
+
 
 </script>
 </html>

@@ -28,6 +28,7 @@ public class Controller extends HttpServlet
         String path = request.getPathInfo();
         RequestDispatcher dispatcher = null;
         newUser = null;
+        List<Task> tasksList = null;
         switch (path)
         {
             case "/login":
@@ -40,13 +41,14 @@ public class Controller extends HttpServlet
                 {
                     toDoListDAO.checkIfPasswordMatchToUser(newUser);
                     newUser = toDoListDAO.getUser(newUser.getId());
-                    List<Task> tasksList = toDoListDAO.getTasksByUID(newUser.getId());
+                    tasksList = toDoListDAO.getTasksByUID(newUser.getId());
 
                     request.getServletContext().setAttribute("userID", newUser.getId());
                     request.getServletContext().setAttribute("userName", newUser.getName());
                     request.getServletContext().setAttribute("tasksList", tasksList);
 
-                    request.getRequestDispatcher("/userToDoListItems.jsp").forward(request, response);
+                    //request.getRequestDispatcher("/userToDoListItems.jsp").forward(request, response);
+                    response.sendRedirect("/userToDoListItems.jsp");
 
                 }
                 catch (ToDoListException e)
@@ -88,11 +90,12 @@ public class Controller extends HttpServlet
                 try
                 {
                     toDoListDAO.addTask(task);
-                    List<Task> tasksList = toDoListDAO.getTasksByUID(userID);
+                    tasksList = toDoListDAO.getTasksByUID(userID);
 
                     request.getServletContext().setAttribute("tasksList", tasksList);
-                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
-                    dispatcher.forward(request, response);
+                    //dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
+                    //dispatcher.forward(request, response);
+                    response.sendRedirect("/userToDoListItems.jsp");
                 }
                 catch (ToDoListException e)
                 {
@@ -100,6 +103,7 @@ public class Controller extends HttpServlet
                     request.getServletContext().setAttribute("userMessage", e.getMessage());
                     dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
                     dispatcher.forward(request, response);
+
                 }
                 break;
             }
@@ -111,19 +115,43 @@ public class Controller extends HttpServlet
                 break;
             }
             case "/editTask": {
-                String taskText = request.getParameter("clickedId");
+                String taskID = request.getParameter("taskID");
+                int userID = Integer.parseInt(String.valueOf(request.getServletContext().getAttribute("userID")));
+                String description = request.getParameter("Description");
+
+                Task editableTask = null;
+                try
+                {
+                    editableTask = toDoListDAO.getTask(Integer.parseInt(taskID));
+                    editableTask.setDescription(description);
+                    toDoListDAO.updateTask(editableTask);
+                    tasksList = toDoListDAO.getTasksByUID(userID);
+
+                    request.getServletContext().setAttribute("tasksList", tasksList);
+
+
+                    response.sendRedirect("/userToDoListItems.jsp");
+                }
+                catch (ToDoListException e)
+                {
+                    e.printStackTrace();
+                    request.getServletContext().setAttribute("userMessage", e.getMessage());
+                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
+                    dispatcher.forward(request, response);
+                }
+
                 break;
             }
             case "/removeTask":
             {
-                String text = "<br>Message from servlet<br>"; //message you will recieve
                 String taskID = request.getParameter("taskID");
-
                 Task deletedTask = null;
                 try
                 {
                     deletedTask = toDoListDAO.getTask(Integer.parseInt(taskID));
                     toDoListDAO.deleteTask(deletedTask);
+                    response.sendRedirect("/userToDoListItems.jsp");
+
                 }
                 catch (ToDoListException e)
                 {

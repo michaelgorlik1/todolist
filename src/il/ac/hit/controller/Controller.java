@@ -116,7 +116,8 @@ public class Controller extends HttpServlet
             }
             case "/editTask": {
                 String taskID = request.getParameter("taskID");
-                int userID = Integer.parseInt(String.valueOf(request.getServletContext().getAttribute("userID")));
+
+
                 String description = request.getParameter("Description");
 
                 Task editableTask = null;
@@ -125,7 +126,7 @@ public class Controller extends HttpServlet
                     editableTask = toDoListDAO.getTask(Integer.parseInt(taskID));
                     editableTask.setDescription(description);
                     toDoListDAO.updateTask(editableTask);
-                    tasksList = toDoListDAO.getTasksByUID(userID);
+                    tasksList = toDoListDAO.getTasksByUID(editableTask.getUserID());
 
                     request.getServletContext().setAttribute("tasksList", tasksList);
 
@@ -150,7 +151,13 @@ public class Controller extends HttpServlet
                 {
                     deletedTask = toDoListDAO.getTask(Integer.parseInt(taskID));
                     toDoListDAO.deleteTask(deletedTask);
-                    response.sendRedirect("/userToDoListItems.jsp");
+
+                    tasksList = toDoListDAO.getTasksByUID(deletedTask.getUserID());
+
+                    request.getServletContext().setAttribute("tasksList", tasksList);
+                    dispatcher = getServletContext().getRequestDispatcher("/userToDoListItems.jsp");
+                    dispatcher.forward(request, response);
+                    //response.sendRedirect("/userToDoListItems.jsp");
 
                 }
                 catch (ToDoListException e)

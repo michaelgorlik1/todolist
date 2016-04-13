@@ -4,7 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbde3781-2759-4a20-8205-b801dfc0eb12" name="Default" comment="Added delete to task,&#10;jquery, ajax and more thigs I don't know shit about">
+    <list default="true" id="dbde3781-2759-4a20-8205-b801dfc0eb12" name="Default" comment="Added edit task, partial..">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/il/ac/hit/controller/Controller.java" afterPath="$PROJECT_DIR$/src/il/ac/hit/controller/Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/userToDoListItems.jsp" afterPath="$PROJECT_DIR$/web/userToDoListItems.jsp" />
@@ -40,11 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/il/ac/hit/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="111" column="50" selection-start-line="111" selection-start-column="50" selection-end-line="111" selection-end-column="50" />
+            <state relative-caret-position="324">
+              <caret line="109" column="25" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,14 +52,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userToDoListItems.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="userToDoListItems.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/userToDoListItems.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="180" column="15" selection-start-line="180" selection-start-column="15" selection-end-line="180" selection-end-column="15" />
+            <state relative-caret-position="51">
+              <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
               <folding>
                 <element signature="n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#7741#7794#0#HTML" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/menu.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="34" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,8 +135,8 @@
         <option value="$PROJECT_DIR$/src/il/ac/hit/model/ToDoListDAO.java" />
         <option value="$PROJECT_DIR$/web/bootstrap/js/jquery.mockjax.js" />
         <option value="$PROJECT_DIR$/web/bootstrap/js/bootstrap-editable.js" />
-        <option value="$PROJECT_DIR$/web/userToDoListItems.jsp" />
         <option value="$PROJECT_DIR$/src/il/ac/hit/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/web/userToDoListItems.jsp" />
       </list>
     </option>
   </component>
@@ -157,7 +168,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="942" />
+    <option name="width" value="886" />
     <option name="height" value="1017" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -205,7 +216,52 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToDoListProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToDoListProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todolistproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToDoListProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todolistproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToDoListProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todolistproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
       <pane id="PackagesPane">
         <subPane>
@@ -234,21 +290,21 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.254023" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/JavaEditableDataTable/EditableDataTable" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="64" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="46" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="71" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="52" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="105" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="72" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="447" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="480" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="71" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="68" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="76" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="72" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="78" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="74" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="462" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="436" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
@@ -896,7 +952,7 @@
       <workItem from="1459934167287" duration="3064000" />
       <workItem from="1460322990385" duration="6383000" />
       <workItem from="1460365550010" duration="8942000" />
-      <workItem from="1460379591226" duration="45005000" />
+      <workItem from="1460379591226" duration="51713000" />
     </task>
     <task id="LOCAL-00001" summary="add methods to user interface">
       <created>1457962181227</created>
@@ -1066,11 +1122,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460400176529</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added edit task, partial..">
+      <created>1460533200252</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1460533200252</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189183000" />
+    <option name="totallyTimeSpent" value="195891000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1082,7 +1145,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="942" height="1017" extended-state="0" />
+    <frame x="-7" y="0" width="886" height="1017" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1096,17 +1159,17 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24937028" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51299435" sideWeight="0.5287286" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37853107" sideWeight="0.5287286" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32662192" sideWeight="0.49266502" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.46465296" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33107343" sideWeight="0.5465995" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3870246" sideWeight="0.4651589" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38644066" sideWeight="0.4651589" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35367233" sideWeight="0.55378973" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32550335" sideWeight="0.4896088" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294621" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3130531" sideWeight="0.61152416" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30024213" sideWeight="0.61152416" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20654912" sideWeight="0.38847584" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.4736504" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299748" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1144,7 +1207,8 @@
     <MESSAGE value="1" />
     <MESSAGE value="blablab" />
     <MESSAGE value="Added delete to task,&#10;jquery, ajax and more thigs I don't know shit about" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added delete to task,&#10;jquery, ajax and more thigs I don't know shit about" />
+    <MESSAGE value="Added edit task, partial.." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added edit task, partial.." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1152,12 +1216,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/il/ac/hit/controller/Controller.java</url>
-          <line>146</line>
-          <properties />
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/il/ac/hit/controller/Controller.java</url>
           <line>117</line>
@@ -1169,18 +1227,13 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="request.getParameter(&quot;Description&quot;)" language="JAVA" custom="" />
-        <watch expression="getServletContext().getAttribute(&quot;modalForm&quot;);" language="JAVA" custom="" />
-        <watch expression="getServletContext().getAttribute(&quot;name&quot;);" language="JAVA" custom="" />
-        <watch expression="getServletContext().getAttribute(&quot;Description0&quot;)" language="JAVA" custom="" />
-        <watch expression="getServletContext()" language="JAVA" custom="" />
-        <watch expression="request.getSession().getServletContext()" language="JAVA" custom="" />
-        <watch expression="request.getParameter(&quot;id&quot;)" language="JAVA" custom="" />
-        <watch expression="response.getHeaderNames()" language="JAVA" custom="" />
         <watch expression="request.getParameterNames()" language="JAVA" custom="" />
         <watch expression="request.getServletContext()" language="JAVA" custom="" />
+        <watch expression="request.getParameter(&quot;data&quot;)" language="JAVA" custom="" />
+        <watch expression="classCache = {HashMap@4465}  size = 24" />
         <watch expression="request.getParameter(&quot;taskID&quot;)" language="JAVA" custom="" />
-        <watch expression="$(this).attr('id')" language="JAVA" custom="" />
+        <watch expression="tasksList" language="JAVA" custom="" />
+        <watch expression="editableTask" language="JAVA" custom="" />
       </configuration>
       <configuration name="Application">
         <watch expression="user.getName()" language="JAVA" custom="" />
@@ -1423,14 +1476,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/login.jsp" />
-    <entry file="file://$PROJECT_DIR$/web/menu.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1508,22 +1553,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/userToDoListItems.jsp">
+    <entry file="file://$PROJECT_DIR$/web/menu.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="180" column="15" selection-start-line="180" selection-start-column="15" selection-end-line="180" selection-end-column="15" />
-          <folding>
-            <element signature="n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="34" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/il/ac/hit/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="111" column="50" selection-start-line="111" selection-start-column="50" selection-end-line="111" selection-end-column="50" />
+        <state relative-caret-position="324">
+          <caret line="109" column="25" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/userToDoListItems.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+          <folding>
+            <element signature="n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#7741#7794#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>

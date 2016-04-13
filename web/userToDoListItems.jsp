@@ -58,8 +58,28 @@
 <body>
 
 
-<jsp:include page="/menu.jsp"/>
-
+<%--<jsp:include page="/menu.jsp"/>--%>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">The ToDo list</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Info</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="controller/logout"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <section class="container">
     <section class="login-form">
@@ -70,98 +90,9 @@
             <button type="submit" name="login" class="btn bt8n-lg btn-primary btn-block">Add</button>
 
             <div style="color: #FF0000;">${userMessage}</div>
-
-            <%--<table class="table table-bordered">--%>
-            <%--<tr>--%>
-            <%--<th align=left>Description</th>--%>
-            <%--</tr>--%>
-
-            <%--&lt;%&ndash;"<td>" + "<button type=\"button\"  action="/controller/editTask"  name=\"btnEdit\" class=\"btn bt8n-lg btn-info btn-block\">Edit</button>" +&ndash;%&gt;--%>
-            <%--<%--%>
-
-
-            <%--String name = (String) request.getServletContext( ).getAttribute("userName");--%>
-            <%--String taskID = (String) request.getServletContext( ).getAttribute("taskID");--%>
-            <%--List<Task> tasksList = (List<Task>) request.getServletContext( ).getAttribute("tasksList");--%>
-            <%--Collections.reverse(tasksList);--%>
-
-            <%--Iterator<Task> iterator;--%>
-            <%--if (tasksList != null) {--%>
-            <%--iterator = tasksList.iterator( );--%>
-            <%--while (iterator.hasNext( )) {--%>
-            <%--Task task = (Task) iterator.next( );--%>
-
-            <%--%>--%>
-            <%--<label id="taskID"><%out.print(task.getDescription( )); %></label>--%>
-
-            <%--<span id="result1"> </span>--%>
-            <%--<input type="button" id="btnEdit" value="edit" class="btn bt8n-lg btn-info btn-block">--%>
-
-            <%--<script type="text/javascript">--%>
-            <%--$(document).ready(function () {--%>
-            <%--$('#btnEdit').click(function () {--%>
-            <%--var task = $('#taskID').val();--%>
-            <%--print(task);--%>
-            <%--$.ajax({--%>
-            <%--type: 'POST',--%>
-            <%--data: {taskId: taskId},--%>
-            <%--url: '/controller/editTask',--%>
-            <%--success: function (result) {--%>
-            <%--$('#result1').html(result);--%>
-            <%--}--%>
-            <%--});--%>
-            <%--});--%>
-            <%--});--%>
-            <%--</script>--%>
-
-            <%--<%--%>
-            <%--}--%>
-            <%--} else {--%>
-            <%--out.print("<td>" + null + "</td>");--%>
-            <%--out.print("<td>" + null + "</td>");--%>
-            <%--out.print("<td>" + null + "</td></tr>");--%>
-            <%--}--%>
-
-            <%--%>--%>
-            <%--</table>--%>
         </form>
 
-        <table class="table table-bordered" id="tabledata">
-            <tr>
-                <th align="center">Description</th>
-                <th align="center">Action</th>
-            </tr>
-
-            <%
-                List<Task> tasksList = (List<Task>) request.getServletContext().getAttribute("tasksList");
-                Collections.reverse(tasksList);
-
-                Iterator<Task> iterator;
-                if (tasksList != null)
-                {
-                    iterator = tasksList.iterator();
-                    while (iterator.hasNext())
-                    {
-                        Task task = (Task) iterator.next();
-            %>
-            <tr>
-                <td>
-                    <label id="<%=task.getTaskID()%>"><%out.print(task.getDescription()); %></label>
-                </td>
-                <td>
-                    <button id="<%=task.getTaskID()%>" class="btnDelete">Delete</button>
-                    <button id="<%=task.getTaskID()%>" class="btnEdit">Edit</button>
-                </td>
-                <div id="somediv"></div>
-            </tr>
-            <%
-                    }
-                }
-            %>
-        </table>
-
-
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered">
             <thead>
             <tr>
                 <th class="">Description</th>
@@ -170,36 +101,34 @@
             </thead>
             <tbody>
             <tr>
-                <td style="text-align:center;" class="">1</td>
-                <td style="text-align:center;">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#myModal" contenteditable="false">
-                        Edit
-                    </button>
-                </td>
-
                     <%
-                List<Task> tasksList2 = (List<Task>) request.getServletContext().getAttribute("tasksList");
-                Collections.reverse(tasksList);
-
-                Iterator<Task> iterator2;
+                List<Task> tasksList = (List<Task>) request.getServletContext().getAttribute("tasksList");
+                Iterator<Task> iterator;
                 if (tasksList != null)
                 {
-                    iterator2 = tasksList2.iterator();
-                    while (iterator2.hasNext())
+                    Collections.reverse(tasksList);
+                    iterator = tasksList.iterator();
+                    while (iterator.hasNext())
                     {
-                        Task task = (Task) iterator2.next();
+                        Task task = (Task) iterator.next();
             %>
             <tr>
                 <td style="text-align:center;"><%out.print(task.getDescription());%></td>
                 <td>
-                    <button id="<%=task.getTaskID()%>" class="btnDelete">Delete</button>
                     <button id="<%=task.getTaskID()%>" class="btn btn-success" data-toggle="modal"
-                            data-target="#myModal" contenteditable="false">Edit
+                            data-target="#myModal" contenteditable="false">
+                        Edit
+                    </button>
+                    <button id="<%=task.getTaskID()%>" contenteditable="false" data-target="#deleteTask"
+                            class="btn btn-danger">Delete
                     </button>
                 </td>
             </tr>
             <%
                     }
+                } else
+                {
+                    out.print("no data");
                 }
             %>
 
@@ -244,12 +173,13 @@
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 <script type="text/javascript">
+    $(document).ready(function () {
+
 
     $(".btn[data-target='#myModal']").click(function () {
-
 
         var columnHeadings = $("thead th").map(function () {
             return $(this).text();
@@ -266,7 +196,7 @@
         $.each(columnHeadings, function (i, columnHeader) {
             var formGroup = $('<div class="form-group"></div>');
             formGroup.append('<label for="' + columnHeader + '">' + columnHeader + '</label>');
-            formGroup.append('<input class="form-control"  name="' + columnHeader + i + '" id="' + columnHeader + i + '" value="' + columnValues + '" />');
+            formGroup.append('<input class="form-control"  name="' + columnHeader + '" id="' + columnHeader + i + '" value="' + columnValues + '" />');
             formGroup.append('<input type="hidden" class="form-control"  name="taskID" id="' + columnHeader + i + '" value="' + idk + '" />');
             modalForm.append(formGroup);
         });
@@ -276,49 +206,31 @@
     $('.modal-footer .btn-primary').click(function () {
         $('form[name="modalForm"]').submit();
     });
-</script>
 
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        var parent = $(this).parent().parent();
-        $('.btnDelete').click(function () {
+        $(".btn[data-target='#deleteTask']").click(function () {
+            //var id = $(this).parent().parent().attr('id');
+            var id = this.id;
+            var data = 'id=' + id;
+            var parent = $(this).parent().parent();
             $.ajax(
-                    removeFromDB(this.id));
-            parent.fadeOut('slow', function () {
-                        $(this).remove();
-                    }
-            );
+                    {
+                        type: "POST",
+                        url: "controller/removeTask",
+                        data: {"taskID": id, "data": data},
+                        cache: false,
+                        beforeSend: function () {
+                            parent.animate({'backgroundColor': '#fb6c6c'}, 300);
+                        },
+                        success: function () {
+                            parent.fadeOut('slow', function () {
+                                $(this).remove();
+                            });
+                        }
+                    });
+
         });
-
-        function removeFromDB(taskID) {
-            $.post(
-                    "removeTask",
-                    {taskID: taskID}
-            );
-        };
-
-        $('.btnEdit').click(function () {
-            $.ajax(editFromDB(this.id));
-            parent.fadeOut('slow', function () {
-                        $(this).remove();
-                    }
-            );
-        });
-        function editFromDB(taskID) {
-            $.post(
-                    "editTask",
-                    {taskID: taskID}
-            );
-        };
-
-
-    });
-    /*new*/
-
-
-    /*new end*/
-
+    })
 
 </script>
 </html>

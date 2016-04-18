@@ -83,59 +83,73 @@
 
 <section class="container">
     <section class="login-form">
+        <%--<%--%>
+        <%--String test = request.getParameter("userName");--%>
+        <%--if(test == null)--%>
+        <%--{--%>
+        <%--request.getServletContext().setAttribute("userMessage", "Please login or register");--%>
+        <%--response.sendRedirect("/index.jsp");--%>
+        <%--}--%>
+        <%--%>--%>
+
+
         <h2>Hello, ${userName}</h2>
+
         <form method="post" action="/controller/addTask" role="login">
             <img src="../images/logo.png" class="img-responsive"/>
             <input type="text" name="taskInput" placeholder="Add a task" required class="form-control input-lg"/>
-            <button type="submit" name="login" class="btn bt8n-lg btn-primary btn-block">Add</button>
 
-            <div style="color: #FF0000;">${userMessage}</div>
-        </form>
+            <button type="submit" name="login" value="AddTask" class="btn btn-lg btn-primary btn-block">Add</button>
 
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th class="">Description</th>
-                <th class="">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                    <%
-                List<Task> tasksList = (List<Task>) request.getServletContext().getAttribute("tasksList");
-                Iterator<Task> iterator;
-                if (tasksList != null)
-                {
+            <%--<div style="color: #FF0000;">${userMessage}</div>--%>
+
+            <table class="table table-bordered">
+                <thead>
+
+                <%
+                    List<Task> tasksList = (List<Task>) request.getServletContext( ).getAttribute("tasksList");
+                    Iterator<Task> iterator;
+                    if (tasksList != null) {
+                %>
+
+                <tr>
+                    <th class="">Description</th>
+                    <th class="">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                        <%
                     Collections.reverse(tasksList);
                     iterator = tasksList.iterator();
                     while (iterator.hasNext())
                     {
                         Task task = (Task) iterator.next();
-            %>
-            <tr>
-                <td style="text-align:center;"><%out.print(task.getDescription());%></td>
-                <td>
-                    <button id="<%=task.getTaskID()%>" class="btn btn-success" data-toggle="modal"
-                            data-target="#myModal" contenteditable="false">
-                        Edit
-                    </button>
-                    <button id="<%=task.getTaskID()%>" contenteditable="false" data-target="#deleteTask"
-                            class="btn btn-danger">Delete
-                    </button>
-                </td>
-            </tr>
-            <%
+                %>
+
+                <tr>
+                    <td style="text-align:center;"><%out.print(task.getDescription( ));%></td>
+                    <td>
+
+                        <button type="button" id="<%=task.getTaskID()%>" class="btn btn-success" data-toggle="modal"
+                                data-target="#myModal" contenteditable="false">Edit
+                        </button>
+                        <button type="button" id="<%=task.getTaskID()%>" contenteditable="false"
+                                data-target="#deleteTask"
+                                class="btn btn-danger">Delete
+                        </button>
+
+                    </td>
+                </tr>
+                <%
+                        }
                     }
-                } else
-                {
-                    out.print("no data");
-                }
-            %>
+                %>
+                </tr>
+                </tbody>
 
-            </tr>
-            </tbody>
-
-        </table>
+            </table>
+        </form>
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
@@ -176,36 +190,49 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 <script type="text/javascript">
+
+    $("form input[type=submit]").click(function () {
+        //console.log($(this).val());
+        if ($(this).val() !== "AddTask") {
+            $('form input[type=text]').each(function () {
+                $(this).removeAttr("required");
+            });
+        }
+        $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
+        $(this).attr("clicked", "true");
+    });
+
+
     $(document).ready(function () {
 
 
-    $(".btn[data-target='#myModal']").click(function () {
+        $(".btn[data-target='#myModal']").click(function () {
 
-        var columnHeadings = $("thead th").map(function () {
-            return $(this).text();
-        }).get();
-        columnHeadings.pop();
-        var columnValues = $(this).parent().siblings().map(function () {
-            return $(this).text();
-        }).get();
-        var modalBody = $('<div id="modalContent"></div>');
+            var columnHeadings = $("thead th").map(function () {
+                return $(this).text();
+            }).get();
+            columnHeadings.pop();
+            var columnValues = $(this).parent().siblings().map(function () {
+                return $(this).text();
+            }).get();
+            var modalBody = $('<div id="modalContent"></div>');
 
-        var idk = $(this).attr('id');
+            var idk = $(this).attr('id');
 
-        var modalForm = $('<form role="form" name="modalForm" action="/controller/editTask" method="post"></form>');
-        $.each(columnHeadings, function (i, columnHeader) {
-            var formGroup = $('<div class="form-group"></div>');
-            formGroup.append('<label for="' + columnHeader + '">' + columnHeader + '</label>');
-            formGroup.append('<input class="form-control"  name="' + columnHeader + '" id="' + columnHeader + i + '" value="' + columnValues + '" />');
-            formGroup.append('<input type="hidden" class="form-control"  name="taskID" id="' + columnHeader + i + '" value="' + idk + '" />');
-            modalForm.append(formGroup);
+            var modalForm = $('<form role="form" name="modalForm" action="/controller/editTask" method="post"></form>');
+            $.each(columnHeadings, function (i, columnHeader) {
+                var formGroup = $('<div class="form-group"></div>');
+                formGroup.append('<label for="' + columnHeader + '">' + columnHeader + '</label>');
+                formGroup.append('<input class="form-control"  name="' + columnHeader + '" id="' + columnHeader + i + '" value="' + columnValues + '" />');
+                formGroup.append('<input type="hidden" class="form-control"  name="taskID" id="' + columnHeader + i + '" value="' + idk + '" />');
+                modalForm.append(formGroup);
+            });
+            modalBody.append(modalForm);
+            $('.modal-body').html(modalBody);
         });
-        modalBody.append(modalForm);
-        $('.modal-body').html(modalBody);
-    });
-    $('.modal-footer .btn-primary').click(function () {
-        $('form[name="modalForm"]').submit();
-    });
+        $('.modal-footer .btn-primary').click(function () {
+            $('form[name="modalForm"]').submit();
+        });
 
 
         $(".btn[data-target='#deleteTask']").click(function () {

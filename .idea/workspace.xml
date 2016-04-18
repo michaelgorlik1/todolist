@@ -4,10 +4,8 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbde3781-2759-4a20-8205-b801dfc0eb12" name="Default" comment="Finalllllly,&#10;working remove and edit task,&#10;for now..">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/404.jpg" afterPath="$PROJECT_DIR$/web/images/404.jpg" />
+    <list default="true" id="dbde3781-2759-4a20-8205-b801dfc0eb12" name="Default" comment="changed 404 page">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/404Error.jsp" afterPath="$PROJECT_DIR$/web/404Error.jsp" />
     </list>
     <ignored path="ToDoListProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -936,7 +934,7 @@
       <workItem from="1460322990385" duration="6383000" />
       <workItem from="1460365550010" duration="8942000" />
       <workItem from="1460379591226" duration="53023000" />
-      <workItem from="1460877189821" duration="2714000" />
+      <workItem from="1460877189821" duration="3963000" />
     </task>
     <task id="LOCAL-00001" summary="add methods to user interface">
       <created>1457962181227</created>
@@ -1120,11 +1118,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460590685991</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="changed 404 page">
+      <created>1460886100138</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1460886100138</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199915000" />
+    <option name="totallyTimeSpent" value="201164000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1200,7 +1205,8 @@
     <MESSAGE value="Added delete to task,&#10;jquery, ajax and more thigs I don't know shit about" />
     <MESSAGE value="Added edit task, partial.." />
     <MESSAGE value="Finalllllly,&#10;working remove and edit task,&#10;for now.." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalllllly,&#10;working remove and edit task,&#10;for now.." />
+    <MESSAGE value="changed 404 page" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed 404 page" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

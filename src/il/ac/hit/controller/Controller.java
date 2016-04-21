@@ -5,6 +5,7 @@ import il.ac.hit.model.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,7 +36,7 @@ public class Controller extends HttpServlet
             {
                 String userName = request.getParameter("userName");
                 String password = request.getParameter("password");
-
+                String rememberMe = request.getParameter("rememberMeCheckBox");
                 newUser = new User(userName, password);
                 try
                 {
@@ -43,6 +44,15 @@ public class Controller extends HttpServlet
                     newUser = toDoListDAO.getUser(newUser.getId());
                     tasksList = toDoListDAO.getTasksByUID(newUser.getId());
 
+                    if (rememberMe != null)
+                    {
+                        Cookie rememberMeCookie = new Cookie("userName", userName);
+                        if (rememberMeCookie != null)
+                        {
+                            rememberMeCookie.setMaxAge(3600);
+                            response.addCookie(rememberMeCookie);
+                        }
+                    }
                     request.getServletContext().setAttribute("userID", newUser.getId());
                     request.getServletContext().setAttribute("userName", newUser.getName());
                     request.getServletContext().setAttribute("tasksList", tasksList);

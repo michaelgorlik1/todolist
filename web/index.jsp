@@ -60,12 +60,45 @@
 
 <section class="container">
     <section class="login-form">
+        <%
+            Cookie[] cookies = request.getCookies();
+            String userNameFromCookie = null;
+            if (cookies != null)
+            {
+                for (Cookie cookie : cookies)
+                {
+                    if (cookie.getName().equals("userName"))
+                    {
+                        userNameFromCookie = cookie.getValue();
+                        break;
+                    }
+                }
+            }
+        %>
         <form method="post" action="/controller/login" role="login">
             <img src="../images/logo.png" class="img-responsive" alt=""/>
-            <input type="text" name="userName" placeholder="User Name" required class="form-control input-lg"/>
-            <input type="password" name="password" placeholder="Password" required class="form-control input-lg"/>
+            <%
+                if (userNameFromCookie == null)
+                {
+            %>
 
+            <input type="text" name="userName" placeholder="User Name" required class="form-control input-lg"/>
+            <%
+            } else if (userNameFromCookie != null)
+            {
+            %>
+            <input type="text" name="userName" placeholder="User Name" value="<%= userNameFromCookie %>" required
+                   class="form-control input-lg"/>
+            <%
+                }
+            %>
+            <%--<input type="text" name="userName" placeholder="User Name" required class="form-control input-lg"/>--%>
+            <input type="password" name="password" placeholder="Password" required class="form-control input-lg"/>
+            <label> <input type="checkbox" name="rememberMeCheckBox" value="remember-me">
+                Remember me(User name only)
+            </label>
             <button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Sign in</button>
+
             <div style="color: #FF0000;">${userMessage}</div>
             <div>
                 <a href="/register.jsp">Create account</a>

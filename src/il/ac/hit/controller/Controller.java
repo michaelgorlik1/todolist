@@ -127,7 +127,6 @@ public class Controller extends HttpServlet
             case "/editTask": {
                 String taskID = request.getParameter("taskID");
 
-
                 String description = request.getParameter("Description");
 
                 Task editableTask = null;

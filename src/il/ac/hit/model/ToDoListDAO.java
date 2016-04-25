@@ -3,6 +3,11 @@ package il.ac.hit.model;
 import org.hibernate.*;
 import org.hibernate.cfg.AnnotationConfiguration;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
@@ -62,6 +67,18 @@ public class ToDoListDAO implements IToDoListDAO
             }
         }
     }
+
+    @GET
+    @Path("/{user}")
+    @Produces({"application/xml"})
+    public Response get(@PathParam("user") String users)
+    {
+        List<User> usersList = getUsersList();
+        return Response.ok(usersList).build();
+    }
+
+
+
 
     @Override
     public void updateTask(Task task) throws ToDoListException

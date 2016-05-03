@@ -9,21 +9,21 @@
     </welcome-file-list>
 
 
-
     <servlet>
-        <servlet-name>Jersey REST Service</servlet-name>
-        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <servlet-name>log4j-init</servlet-name>
+        <servlet-class>il.ac.hit.controller.Log4jInit</servlet-class>
+
         <init-param>
-            <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>il.ac.hit.model</param-value>
+            <param-name>log4j-init-file</param-name>
+            <param-value>WEB-INF/classes/log4j.lcf</param-value>
         </init-param>
+
         <load-on-startup>1</load-on-startup>
+
     </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Jersey REST Service</servlet-name>
-        <url-pattern>/rest/*</url-pattern>
-    </servlet-mapping>
-
+<servlet-mapping>
+    <servlet-name>log4j-init</servlet-name>
+    <url-pattern>il.ac.hit.controller.Log4jInit</url-pattern>
+</servlet-mapping>
 </web-app>
 

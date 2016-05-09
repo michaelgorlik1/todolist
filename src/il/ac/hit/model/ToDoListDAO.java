@@ -79,7 +79,6 @@ public class ToDoListDAO implements IToDoListDAO
 
 
 
-
     @Override
     public void updateTask(Task task) throws ToDoListException
     {
@@ -373,6 +372,7 @@ public class ToDoListDAO implements IToDoListDAO
 
     }
 
+    @Override
     public List<User> getUsersList()
     {
         Session session = null;

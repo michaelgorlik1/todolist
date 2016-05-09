@@ -1,5 +1,7 @@
 package il.ac.hit.model;
 
+import java.util.List;
+
 /**
  * Created by artur on 14/03/2016.
  */
@@ -20,4 +22,6 @@ public interface IToDoListUserDAO
     public void checkIfPasswordMatchToUser(User user) throws ToDoListException;
 
     public User getUser(int userID) throws ToDoListException;
+
+    public List<User> getUsersList( );
 }

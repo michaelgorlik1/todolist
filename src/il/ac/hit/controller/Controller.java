@@ -26,6 +26,8 @@ public class Controller extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         request.getServletContext().removeAttribute("userMessage");
+        List<User> listUsers = toDoListDAO.getUsersList( );
+        request.getServletContext( ).setAttribute("userList", toDoListDAO);
         String path = request.getPathInfo();
         RequestDispatcher dispatcher = null;
         newUser = null;

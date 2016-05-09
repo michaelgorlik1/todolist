@@ -128,17 +128,18 @@
                 %>
 
                 <tr>
-                    <td style="text-align:center;"><%out.print(task.getDescription( ));%></td>
-                    <td>
+                    <td style="white-space: normal; word-break: break-all; max-width:200px;"><%
+                        out.print(task.getDescription( ));%></td>
+                    <td width="100%">
 
-                        <button type="button" id="<%=task.getTaskID()%>" class="btn btn-success" data-toggle="modal"
+                        <button style="width:100px" type="button" id="<%=task.getTaskID()%>" class="btn btn-success"
+                                data-toggle="modal"
                                 data-target="#myModal" contenteditable="false">Edit
                         </button>
-                        <button type="button" id="<%=task.getTaskID()%>" contenteditable="false"
+                        <button style="width:100px" type="button" id="<%=task.getTaskID()%>" contenteditable="false"
                                 data-target="#deleteTask"
                                 class="btn btn-danger">Delete
                         </button>
-
                     </td>
                 </tr>
                 <%

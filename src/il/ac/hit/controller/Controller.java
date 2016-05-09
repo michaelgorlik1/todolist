@@ -1,6 +1,9 @@
 package il.ac.hit.controller;
 
 import il.ac.hit.model.*;
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Logger;
+import org.apache.log4j.SimpleLayout;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,10 +22,30 @@ import java.util.List;
 @WebServlet("/controller/*")
 public class Controller extends HttpServlet
 {
+    /**
+     * The Log4J instance.
+     */
+    static Logger logger = Logger.getLogger("Controller");
+    /**
+     * The DAO instance.
+     */
     IToDoListDAO toDoListDAO = ToDoListDAO.getInstance();
-
+    /** Current session user. */
     private User newUser;
 
+    /**
+     * Do post. All the logic of the Web-application is implemented here.
+     * Every click in the application produces URI with which we handle the action.
+     * Description for every URI can be found over his IF statement.
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     *      response)
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         request.getServletContext().removeAttribute("userMessage");
@@ -40,6 +63,10 @@ public class Controller extends HttpServlet
                 String password = request.getParameter("password");
                 String rememberMe = request.getParameter("rememberMeCheckBox");
                 newUser = new User(userName, password);
+
+                logger.addAppender(new FileAppender(new SimpleLayout(), "log.txt"));
+                logger.info("newUser created :" + newUser);
+
                 try
                 {
                     toDoListDAO.checkIfPasswordMatchToUser(newUser);
@@ -186,17 +213,14 @@ public class Controller extends HttpServlet
         }
     }
 
+    /**
+     * Do get.
+     * It used for the first time running the application from the controller.
+     * reference to doPost
+     *
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         doPost(request, response);
-//        String patch = request.getPathInfo();
-//        switch (patch)
-//        {
-//            case "/*":
-//            {
-//                request.getRequestDispatcher("/register.jsp").forward(request, response);
-//            }
-//
-//        }
     }
 }
